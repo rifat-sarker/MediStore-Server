@@ -1,6 +1,6 @@
 {
   "name": "medistore-server",
-  "module": "index.ts",
+  "main": "dist/server.js",
   "type": "module",
   "scripts": {
     "start": "bun run dist/server.js",
