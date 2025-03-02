@@ -25,8 +25,8 @@ const userSchema = new Schema<TUser>(
       enum: ["admin", "customer"],
       default: "customer",
     },
-    phone: { type: String, default: "N/A" },
-    address: { type: String, default: "N/A" },
+    phone: { type: String },
+    address: { type: String },
   },
   {
     timestamps: true,
