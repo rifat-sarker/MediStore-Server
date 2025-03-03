@@ -1,9 +1,9 @@
 import { model, Schema } from "mongoose";
-import { TAdmin } from "./admin.interface";
+import { IAdmin } from "./admin.interface";
 import bcrypt from "bcrypt";
 import config from "../../config";
 
-const adminSchema = new Schema<TAdmin>(
+const adminSchema = new Schema<IAdmin>(
   {
     role: {
       type: String,
@@ -54,4 +54,4 @@ adminSchema.post("save", function (doc, next) {
   next();
 });
 
-export const Admin = model<TAdmin>("Admin", adminSchema);
+export const Admin = model<IAdmin>("Admin", adminSchema);

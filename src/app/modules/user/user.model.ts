@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 import bcrypt from "bcrypt";
 import { Schema, model } from "mongoose";
-import { TUser } from "./user.interface";
+import { IUser, UserRole } from "./user.interface";
 import config from "../../config";
 
-const userSchema = new Schema<TUser>(
+const userSchema = new Schema<IUser>(
   {
     name: {
       type: String,
@@ -22,8 +22,8 @@ const userSchema = new Schema<TUser>(
     },
     role: {
       type: String,
-      enum: ["admin", "customer"],
-      default: "customer",
+      enum: [UserRole.admin, UserRole.customer],
+      default: UserRole.customer,
     },
     phone: { type: String },
     address: { type: String },
@@ -52,4 +52,4 @@ userSchema.post("save", function (doc, next) {
   next();
 });
 
-export const User = model<TUser>("User", userSchema);
+export const User = model<IUser>("User", userSchema);
