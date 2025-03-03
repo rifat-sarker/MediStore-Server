@@ -24,4 +24,20 @@ router.post(
   MedicineController.createMedicine
 );
 
+// get all medicine
+router.get("/", MedicineController.getAllMedicine);
+
+// get a single medicine route
+router.get("/:medicineId", MedicineController.getASpecificMedicine);
+
+//update medicine
+router.patch(
+  "/:medicineId",
+  validateRequest(MedicineValidation.updateMedicineValidationSchema),
+  MedicineController.updateMedicine
+);
+
+// delete a medicine
+router.delete("/:medicineId", MedicineController.deleteMedicine);
+
 export const MedicineRoutes = router;

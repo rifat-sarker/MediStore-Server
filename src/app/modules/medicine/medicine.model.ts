@@ -20,6 +20,11 @@ const MedicineSchema = new Schema<IMedicine>(
       type: Number,
       required: true,
     },
+    availability: {
+      type: Boolean,
+      required: true,
+      default: true,
+    },
     requiredPrescription: {
       type: Boolean,
       required: true,

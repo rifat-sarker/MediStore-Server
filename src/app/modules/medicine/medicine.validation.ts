@@ -10,13 +10,14 @@ const createMedicineValidationSchema = z.object({
     description: z.string().nonempty("Description is required"),
     price: z.number().min(0, "Price must be greater than or equal to 0"),
     stock: z.number().min(0, "Stock must be greater than or equal to 0"),
+    availability: z
+      .boolean()
+      .refine((value) => value === true || value === false, {
+        message: "InStock must be true or false",
+      }),
     requiredPrescription: z.boolean(),
     manufacturer: z.string().min(1, "Manufacturer name is required").nonempty(),
     expiryDate: z.date(),
-    // image: z
-    //   .string()
-    //   .url("Image URL is required and should be a valid URL")
-    //   .nonempty(),
   }),
 });
 
@@ -40,6 +41,12 @@ const updateMedicineValidationSchema = z.object({
     stock: z
       .number()
       .min(0, "Stock must be greater than or equal to 0")
+      .optional(),
+    availability: z
+      .boolean()
+      .refine((value) => value === true || value === false, {
+        message: "InStock must be true or false",
+      })
       .optional(),
     requiredPrescription: z.boolean().optional(),
     manufacturer: z
