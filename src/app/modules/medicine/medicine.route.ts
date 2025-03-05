@@ -3,12 +3,15 @@ import { MedicineController } from "./medicine.controller";
 import { multerUpload } from "../../config/multer.config";
 import validateRequest from "../../middlewares/validateRequest";
 import { MedicineValidation } from "./medicine.validation";
+import auth from "../../middlewares/auth";
+import { UserRole } from "../user/user.interface";
 
 const router = express.Router();
 
 // create medicine
 router.post(
   "/",
+  // auth(UserRole.admin),
   multerUpload.single("file"),
   // upload.single('file'),
   (req: Request, res: Response, next: NextFunction) => {
