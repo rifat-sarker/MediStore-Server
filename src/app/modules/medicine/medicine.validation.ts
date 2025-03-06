@@ -54,7 +54,7 @@ const updateMedicineValidationSchema = z.object({
       .min(1, "Manufacturer name is required")
       .nonempty()
       .optional(),
-    expiryDate: z.date(),
+    expiryDate: z.date().optional(),
     image: z
       .string()
       .url("Image URL is required and should be a valid URL")

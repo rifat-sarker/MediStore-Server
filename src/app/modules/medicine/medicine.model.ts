@@ -7,10 +7,12 @@ const MedicineSchema = new Schema<IMedicine>(
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
     description: {
       type: String,
       required: true,
+      trim: true,
     },
     price: {
       type: Number,
@@ -32,6 +34,7 @@ const MedicineSchema = new Schema<IMedicine>(
     manufacturer: {
       type: String,
       required: true,
+      trim: true,
     },
     expiryDate: {
       type: Date,
