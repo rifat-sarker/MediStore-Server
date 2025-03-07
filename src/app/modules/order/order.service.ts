@@ -1,13 +1,14 @@
 import mongoose, { Types } from "mongoose";
 import { IJwtPayload } from "../auth/auth.interface";
-
 import { IOrder } from "./order.interface";
 import { Order } from "./order.model";
-
 import QueryBuilder from "../../builder/QueryBuilder";
 import httpStatus from "http-status";
 import AppError from "../../errors/AppError";
 import { User } from "../user/user.model";
+import { Payment } from "../payment/payment.model";
+import Medicine from "../medicine/medicine.model";
+import { generateTransactionId } from "../payment/payment.utils";
 
 const createOrder = async (
   orderData: Partial<IOrder>,
@@ -19,7 +20,7 @@ const createOrder = async (
   try {
     if (orderData.products) {
       for (const productItem of orderData.products) {
-        const product = await Product.findById(productItem.product).session(
+        const product = await Medicine.findById(productItem.product).session(
           session
         );
 
@@ -58,17 +59,17 @@ const createOrder = async (
 
     await payment.save({ session });
 
-    let result;
+    // let result;
 
-    if (createdOrder.paymentMethod == "Online") {
-      result = await sslService.initPayment({
-        total_amount: createdOrder.finalAmount,
-        tran_id: transactionId,
-      });
-      result = { paymentUrl: result };
-    } else {
-      result = order;
-    }
+    // if (createdOrder.paymentMethod == "Online") {
+    //   result = await sslService.initPayment({
+    //     total_amount: createdOrder.finalAmount,
+    //     tran_id: transactionId,
+    //   });
+    //   result = { paymentUrl: result };
+    // } else {
+    //   result = order;
+    // }
 
     // Commit the transaction
     await session.commitTransaction();
@@ -94,7 +95,7 @@ const createOrder = async (
     //   "Order confirmed!",
     //   attachment
     // );
-    return result;
+    return payment;
   } catch (error) {
     console.log(error);
     // Rollback the transaction in case of error

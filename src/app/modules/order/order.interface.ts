@@ -1,4 +1,5 @@
 import { Types, Document } from "mongoose";
+import { IPayment } from "../payment/payment.interface";
 
 
 export interface IOrderProduct {
@@ -21,5 +22,5 @@ export interface IOrder extends Document {
   paymentStatus: "Pending" | "Paid" | "Failed";
   createdAt?: Date;
   updatedAt?: Date;
-  // payment?: IPayment | null;
+  payment?: IPayment | null;
 }

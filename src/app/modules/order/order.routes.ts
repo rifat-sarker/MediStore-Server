@@ -6,9 +6,13 @@ import auth from '../../middlewares/auth';
 const router = Router();
 
 // Define routes
+router.post(
+    '/',
+    OrderController.createOrder
+)
 router.get(
-    '/my-shop-orders',
-    OrderController.getMyShopOrders
+    '/get-orders',
+    OrderController.getOrders
 );
 
 router.get(
@@ -21,10 +25,6 @@ router.get(
     OrderController.getOrderDetails
 );
 
-router.post(
-    '/',
-    OrderController.createOrder
-)
 
 router.patch(
     '/:orderId/status',

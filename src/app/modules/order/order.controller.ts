@@ -21,7 +21,7 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getOrders = catchAsync(async (req: Request, res: Response) => {
-  const result = await OrderService.getMyShopOrders(
+  const result = await OrderService.getOrders(
     req.query,
     req.user as IJwtPayload
   );
