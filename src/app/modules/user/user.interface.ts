@@ -2,8 +2,8 @@ import { Document } from "mongoose";
 
 // Enum for User Roles
 export enum UserRole {
-  admin = "admin",
-  customer = "customer",
+  ADMIN = "admin",
+  CUSTOMER = "customer",
 }
 
 export interface IUser extends Document {
