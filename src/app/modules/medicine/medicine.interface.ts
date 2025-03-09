@@ -1,5 +1,10 @@
+import { Types } from "mongoose";
+
 export interface IMedicine {
   name: string;
+  category:Types.ObjectId;
+  type:Types.ObjectId;
+  brand:string,
   description: string;
   price: number;
   stock: number;
