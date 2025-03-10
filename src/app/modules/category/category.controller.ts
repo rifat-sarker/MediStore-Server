@@ -1,12 +1,16 @@
-import { Request, Response } from 'express';
-import catchAsync from '../../utils/catchAsync';
-import { CategoryService } from './category.service';
-import sendResponse from '../../utils/sendResponse';
-import { IJwtPayload } from '../auth/auth.interface';
-import httpStatus from 'http-status';
-import { IImageFile } from '../../interface/IImageFile';
+import { Request, Response } from "express";
+import catchAsync from "../../utils/catchAsync";
+import { CategoryService } from "./category.service";
+import sendResponse from "../../utils/sendResponse";
+import { IJwtPayload } from "../auth/auth.interface";
+import httpStatus from "http-status";
+import { IImageFile } from "../../interface/IImageFile";
 
 const createCategory = catchAsync(async (req: Request, res: Response) => {
+  console.log("req.user:", req.user);
+  if (!req.user) {
+    throw new Error(" No user found in request");
+  }
 
   const result = await CategoryService.createCategory(
     req.body,
@@ -17,7 +21,7 @@ const createCategory = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Category created succesfully',
+    message: "Category created succesfully",
     data: result,
   });
 });
@@ -28,7 +32,7 @@ const getAllCategory = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'category are retrieved succesfully',
+    message: "category are retrieved succesfully",
     meta: result.meta,
     data: result.result,
   });
@@ -46,7 +50,7 @@ const updateCategory = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'category is updated succesfully',
+    message: "category is updated succesfully",
     data: result,
   });
 });
@@ -61,7 +65,7 @@ const deleteCategory = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Category is deleted successfully',
+    message: "Category is deleted successfully",
     data: result,
   });
 });
@@ -70,5 +74,5 @@ export const CategoryController = {
   createCategory,
   getAllCategory,
   updateCategory,
-  deleteCategory
-}
+  deleteCategory,
+};

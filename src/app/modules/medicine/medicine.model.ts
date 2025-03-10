@@ -19,7 +19,6 @@ const MedicineSchema = new Schema<IMedicine>(
       ref: "Type", // Reference to Type model
       required: true,
     },
-
     brand: {
       type: String,
       required: true,
@@ -53,6 +52,10 @@ const MedicineSchema = new Schema<IMedicine>(
       type: String,
       required: true,
       trim: true,
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
     },
     expiryDate: {
       type: Date,

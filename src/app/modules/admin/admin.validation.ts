@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createAdminValidationSchema = z.object({
+export const createadminValidationSchema = z.object({
   body: z.object({
     email: z.string({
       invalid_type_error: "Email must be string",
@@ -27,6 +27,6 @@ export const createAdminValidationSchema = z.object({
   }),
 });
 
-export const AdminValidations = {
-  createAdminValidationSchema,
+export const adminValidations = {
+  createadminValidationSchema,
 };

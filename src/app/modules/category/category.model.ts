@@ -2,7 +2,7 @@ import { Schema, model, Document, Types } from "mongoose";
 import { ICategory } from "./category.interface";
 
 // Extend Mongoose Document with ICategory
-interface ICategoryDocument extends Document, ICategory { }
+interface ICategoryDocument extends Document, ICategory {}
 
 // Define the schema
 const categorySchema = new Schema<ICategoryDocument>(
@@ -23,6 +23,12 @@ const categorySchema = new Schema<ICategoryDocument>(
       type: String,
       trim: true,
     },
+    type: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Type", // Reference to Type model
+      },
+    ],
     parent: {
       type: Schema.Types.ObjectId,
       ref: "Category",
@@ -50,7 +56,10 @@ const categorySchema = new Schema<ICategoryDocument>(
 categorySchema.pre<ICategory>("validate", function (next) {
   if (this instanceof Document) {
     if (this.isModified("name") && !this.slug) {
-      this.slug = this.name.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+      this.slug = this.name
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/[^\w-]+/g, "");
     }
   }
   next();

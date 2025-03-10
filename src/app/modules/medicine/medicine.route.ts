@@ -4,7 +4,7 @@ import { multerUpload } from "../../config/multer.config";
 import validateRequest from "../../middlewares/validateRequest";
 import { MedicineValidation } from "./medicine.validation";
 import auth from "../../middlewares/auth";
-import { UserRole } from "../user/user.interface";
+import { USER_ROLE } from "../user/user.interface";
 
 const router = express.Router();
 
@@ -15,14 +15,13 @@ router.post(
   (req: Request, res: Response, next: NextFunction) => {
     req.body = JSON.parse(req.body.data);
     // Convert expiryDate to Date object
-    req.body.expiryDate = new Date(req.body.expiryDate); 
+    req.body.expiryDate = new Date(req.body.expiryDate);
     // console.log("final data", req.body)
     next();
   },
   validateRequest(MedicineValidation.createMedicineValidationSchema),
   MedicineController.createMedicine
 );
-
 
 // get all medicine
 router.get("/", MedicineController.getAllMedicine);

@@ -1,4 +1,4 @@
-import { UserRole } from "../user/user.interface";
+import { USER_ROLE } from "../user/user.interface";
 
 export interface IAuth {
   email: string;
@@ -11,5 +11,5 @@ export interface IJwtPayload {
   name: string;
   phone: string;
   email: string;
-  role: UserRole;
+  role: USER_ROLE;
 }

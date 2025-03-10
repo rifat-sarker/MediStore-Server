@@ -15,8 +15,8 @@ const createUser = catchAsync(async (req, res) => {
   });
 });
 
-const createAdmin = catchAsync(async (req, res) => {
-  const result = await UserServices.createAdminIntoDB({
+const createadmin = catchAsync(async (req, res) => {
+  const result = await UserServices.createadminIntoDB({
     ...req.body,
     role: "admin",
   });
@@ -24,7 +24,7 @@ const createAdmin = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "Admin is created succesfully",
+    message: "admin is created succesfully",
     data: result,
   });
 });
@@ -63,7 +63,7 @@ const deleteUser = catchAsync(async (req, res) => {
 
 export const UserControllers = {
   createUser,
-  createAdmin,
+  createadmin,
   getAllUsers,
   updateUser,
   deleteUser,

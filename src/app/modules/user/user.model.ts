@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 import bcrypt from "bcrypt";
 import { Schema, model } from "mongoose";
-import { IUser, UserRole } from "./user.interface";
+import { IUser, USER_ROLE } from "./user.interface";
 import config from "../../config";
 
 const userSchema = new Schema<IUser>(
@@ -22,8 +22,8 @@ const userSchema = new Schema<IUser>(
     },
     role: {
       type: String,
-      enum: [UserRole.admin, UserRole.customer],
-      default: UserRole.customer,
+      enum: [USER_ROLE.admin, USER_ROLE.customer],
+      default: USER_ROLE.customer,
     },
     phone: { type: String },
     address: { type: String },

@@ -1,5 +1,4 @@
-
-import { TAdmin } from "../admin/admin.interface";
+import { Tadmin } from "../admin/admin.interface";
 import { TUser } from "./user.interface";
 import { User } from "./user.model";
 
@@ -8,7 +7,7 @@ const createUserIntoDB = async (userData: TUser) => {
   return result;
 };
 
-const createAdminIntoDB = async (userData: TAdmin) => {
+const createadminIntoDB = async (userData: Tadmin) => {
   const result = await User.create(userData);
   return result;
 };
@@ -30,7 +29,7 @@ const deleteUserFromDB = async (id: string) => {
 
 export const UserServices = {
   createUserIntoDB,
-  createAdminIntoDB,
+  createadminIntoDB,
   getAllUsersFromDB,
   updateUserIntoDB,
   deleteUserFromDB,
