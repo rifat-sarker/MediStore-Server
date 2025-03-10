@@ -23,12 +23,6 @@ const categorySchema = new Schema<ICategoryDocument>(
       type: String,
       trim: true,
     },
-    type: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Type", // Reference to Type model
-      },
-    ],
     parent: {
       type: Schema.Types.ObjectId,
       ref: "Category",

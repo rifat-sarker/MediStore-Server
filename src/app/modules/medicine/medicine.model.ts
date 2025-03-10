@@ -47,6 +47,7 @@ const MedicineSchema = new Schema<IMedicine>(
     requiredPrescription: {
       type: Boolean,
       required: true,
+      default: false
     },
     manufacturer: {
       type: String,

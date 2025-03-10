@@ -22,12 +22,17 @@ router.post(
 
 router.patch(
   "/:id",
+  auth(USER_ROLE.customer),
   multerUpload.single("icon"),
   parseBody,
   validateRequest(categoryValidation.updateCategoryValidationSchema),
   CategoryController.updateCategory
 );
 
-router.delete("/:id", CategoryController.deleteCategory);
+router.delete(
+  "/:id",
+  auth(USER_ROLE.customer),
+  CategoryController.deleteCategory
+);
 
 export const CategoryRoutes = router;

@@ -25,8 +25,8 @@ const createMedicineValidationSchema = z.object({
       .boolean()
       .refine((value) => value === true || value === false, {
         message: "InStock must be true or false",
-      }),
-    requiredPrescription: z.boolean(),
+      }).optional(),
+    // requiredPrescription: z.boolean().optional(),
     manufacturer: z.string().min(1, "Manufacturer name is required").nonempty(),
     expiryDate: z.date(),
   }),

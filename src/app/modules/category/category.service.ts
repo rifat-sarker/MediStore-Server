@@ -27,7 +27,7 @@ const createCategory = async (
 
 const getAllCategory = async (query: Record<string, unknown>) => {
   const categoryQuery = new QueryBuilder(
-    Category.find().populate("parent").populate("type"),
+    Category.find().populate("parent"),
     query
   )
     .search(["name", "slug"])

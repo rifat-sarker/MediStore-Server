@@ -9,13 +9,12 @@ const createMedicineIntoDB = async (medicineData: IMedicine) => {
 };
 
 const getAllMedicineFromDB = async (query: Record<string, unknown>) => {
-  const medicineQuery = new QueryBuilder(Medicine.find(), query)
+  const medicineQuery = new QueryBuilder(Medicine.find().populate('category').populate('type'), query)
     .search(medicineSearchableFields)
     .filter()
     .sort()
     .paginate()
     .fields();
-
   const meta = await medicineQuery.countTotal();
   const result = await medicineQuery.modelQuery;
   return { meta, result };
