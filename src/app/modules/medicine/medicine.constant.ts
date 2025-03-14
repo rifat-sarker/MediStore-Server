@@ -1,4 +1,2 @@
-export const medicineSearchableFields = [
-    'name',
-  ];
+export const medicineSearchableFields = ["name", "slug", "description"];
   

@@ -16,8 +16,8 @@ class QueryBuilder<T> {
         $or: searchableFields.map(
           (field) =>
             ({
-              [field]: { $regex: searchTerm, $options: 'i' },
-            }) as FilterQuery<T>,
+              [field]: { $regex: searchTerm, $options: "i" },
+            } as FilterQuery<T>)
         ),
       });
     }
@@ -28,7 +28,7 @@ class QueryBuilder<T> {
     const queryObj = { ...this.query }; //copy
 
     // filetering
-    const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields'];
+    const excludeFields = ["searchTerm", "sort", "limit", "page", "fields"];
     excludeFields.forEach((el) => delete queryObj[el]);
 
     this.modelQuery = this.modelQuery.find(queryObj as FilterQuery<T>);
@@ -37,7 +37,8 @@ class QueryBuilder<T> {
   }
 
   sort() {
-    const sort = (this?.query?.sort as string)?.split(',')?.join(' ') || '-createdAt';
+    const sort =
+      (this?.query?.sort as string)?.split(",")?.join(" ") || "-createdAt";
     this.modelQuery = this.modelQuery.sort(sort as string);
     return this;
   }
@@ -51,7 +52,7 @@ class QueryBuilder<T> {
 
   fields() {
     const fields =
-      (this?.query?.fields as string)?.split(',')?.join(' ') || '-__v';
+      (this?.query?.fields as string)?.split(",")?.join(" ") || "-__v";
     this.modelQuery = this.modelQuery.select(fields);
     return this;
   }
@@ -68,6 +69,19 @@ class QueryBuilder<T> {
       total,
       totalPage,
     };
+  }
+  priceRange(minPrice?: number, maxPrice?: number) {
+    const priceFilter: Record<string, unknown> = {};
+    if (minPrice !== undefined) priceFilter.$gte = minPrice;
+    if (maxPrice !== undefined) priceFilter.$lte = maxPrice;
+
+    if (minPrice !== undefined || maxPrice !== undefined) {
+      this.modelQuery = this.modelQuery.find({
+        price: priceFilter,
+      } as FilterQuery<T>);
+    }
+
+    return this;
   }
 }
 
