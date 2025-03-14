@@ -7,7 +7,6 @@ import httpStatus from "http-status";
 import { IImageFile } from "../../interface/IImageFile";
 
 const createCategory = catchAsync(async (req: Request, res: Response) => {
-  console.log("req.user:", req.user);
   if (!req.user) {
     throw new Error(" No user found in request");
   }

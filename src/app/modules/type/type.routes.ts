@@ -7,7 +7,7 @@ import { USER_ROLE } from "../user/user.interface";
 
 const router = Router();
 
-router.get("/", auth(USER_ROLE.customer), TypeController.getAllType);
+router.get("/", TypeController.getAllType);
 
 router.post(
   "/",
