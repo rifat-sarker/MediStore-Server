@@ -6,6 +6,7 @@ import { OrderRoutes } from "../modules/order/order.routes";
 import { CategoryRoutes } from "../modules/category/category.routes";
 import { TypeRoutes } from "../modules/type/type.routes";
 import { ReviewRoutes } from "../modules/review/review.routes";
+import { WishlistRoutes } from "../modules/wishlist/wishlist.route";
 
 const router = Router();
 
@@ -37,6 +38,10 @@ const moduleRoutes = [
   {
     path: "/reviews",
     route: ReviewRoutes
+  }
+  {
+    path: "/wishlist",
+    route: WishlistRoutes
   }
 ];
 
