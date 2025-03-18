@@ -27,6 +27,26 @@ const addToWishlist = async (user: string, products: string[]) => {
   return wishlist;
 };
 
+const deleteFromWishlist = async (user: string, productId: string) => {
+  if (!user || !productId) {
+    throw new Error("User ID and Product ID are required");
+  }
+
+  const wishlist = await Wishlist.findOne({ user });
+
+  if (!wishlist) {
+    throw new Error("Wishlist not found");
+  }
+
+  const productObjectId = new Types.ObjectId(productId);
+  wishlist.products = wishlist.products.filter(
+    (id) => !id.equals(productObjectId) // Use `.equals` to compare ObjectIds
+  );
+
+  await wishlist.save();
+
+  return wishlist;
+};
 
 const getWishlist = async () => {
   const result = await Wishlist.find();
@@ -36,4 +56,5 @@ const getWishlist = async () => {
 export const WishlistService = {
   addToWishlist,
   getWishlist,
+  deleteFromWishlist,
 };

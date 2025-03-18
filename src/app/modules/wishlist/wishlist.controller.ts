@@ -10,7 +10,7 @@ const addToWishlist = catchAsync(async (req: Request, res: Response) => {
   const { user, products } = req.body; // Fix here
 
   if (!user || !products || !products.length) {
-     res.status(400).json({
+    res.status(400).json({
       success: false,
       message: "User ID and at least one Product ID are required",
     });
@@ -27,7 +27,6 @@ const addToWishlist = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-
 const getWishlist = catchAsync(async (req: Request, res: Response) => {
   const result = await WishlistService.getWishlist();
 
@@ -39,8 +38,31 @@ const getWishlist = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const deleteFromWishlist = catchAsync(async (req: Request, res: Response) => {
+  const { user } = req.body; // Assuming the user is sent in the body
+  const { productId } = req.params; // Extract the productId from the route parameter
+
+  if (!user || !productId) {
+     res.status(400).json({
+      success: false,
+      message: "User ID and Product ID are required",
+    });
+    return;
+  }
+
+  const result = await WishlistService.deleteFromWishlist(user, productId);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Product deleted from wishlist successfully",
+    data: result,
+  });
+});
+
 
 export const WishlistController = {
   addToWishlist,
   getWishlist,
+  deleteFromWishlist,
 };
