@@ -4,10 +4,18 @@ import { IWishlist } from "./wishlist.interface";
 // Define the schema
 const wishlistSchema = new Schema<IWishlist>(
   {
-    _id: {
-      type: String,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
+    products: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Medicine",
+        required: true,
+      },
+    ],
   },
   {
     timestamps: true,

@@ -3,7 +3,7 @@ import { WishlistController } from "./wishlist.controller";
 
 const router = express.Router();
 router.post("/", WishlistController.addToWishlist);
-router.get("/");
+router.get("/", WishlistController.getWishlist);
 router.delete("/:productId");
 
 export const WishlistRoutes = router;

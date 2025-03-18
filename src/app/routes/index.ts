@@ -38,7 +38,7 @@ const moduleRoutes = [
   {
     path: "/reviews",
     route: ReviewRoutes
-  }
+  },
   {
     path: "/wishlist",
     route: WishlistRoutes
