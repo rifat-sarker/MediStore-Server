@@ -39,18 +39,8 @@ const getWishlist = catchAsync(async (req: Request, res: Response) => {
 });
 
 const deleteFromWishlist = catchAsync(async (req: Request, res: Response) => {
-  const { user } = req.body; // Assuming the user is sent in the body
-  const { productId } = req.params; // Extract the productId from the route parameter
-
-  if (!user || !productId) {
-     res.status(400).json({
-      success: false,
-      message: "User ID and Product ID are required",
-    });
-    return;
-  }
-
-  const result = await WishlistService.deleteFromWishlist(user, productId);
+  const { productId } = req.params; 
+  const result = await WishlistService.deleteFromWishlist( productId);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
