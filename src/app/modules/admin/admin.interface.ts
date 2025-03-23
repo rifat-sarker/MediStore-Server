@@ -1,4 +1,4 @@
-export interface Iadmin {
+export interface IAdmin {
   role: string;
   name: string;
   email: string;

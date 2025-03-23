@@ -8,7 +8,7 @@ import { USER_ROLE } from "./user.interface";
 
 const router = express.Router();
 router.post(
-  "/create-user",
+  "/",
   validateRequest(UserValidation.createUserValidationSchema),
   UserControllers.createUser
 );

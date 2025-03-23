@@ -1,20 +1,26 @@
 import mongoose from "mongoose";
 import { IAuth, IJwtPayload } from "./auth.interface";
-import { User } from "../user/user.model";
 import AppError from "../../errors/AppError";
 import httpStatus from "http-status";
 import { createToken, verifyToken } from "./auth.utils";
 import config from "../../config";
 import { Secret } from "jsonwebtoken";
+import User from "../user/user.model";
 
 const loginUser = async (payload: IAuth) => {
   const session = await mongoose.startSession();
   try {
     session.startTransaction();
     const user = await User.findOne({ email: payload.email }).session(session);
+
     if (!user) {
       throw new AppError(httpStatus.NOT_FOUND, "This user is not found");
     }
+
+     if (!(await User.isPasswordMatched(payload?.password, user?.password))) {
+       throw new AppError(httpStatus.FORBIDDEN, "Password does not match");
+     }
+
 
     const jwtPayload: IJwtPayload = {
       userId: user._id as string,

@@ -1,13 +1,13 @@
-import { Tadmin } from "../admin/admin.interface";
-import { TUser } from "./user.interface";
-import { User } from "./user.model";
+import { IAdmin } from "../admin/admin.interface";
+import { IUser } from "./user.interface";
+import User from "./user.model"; // Import default export
 
-const createUserIntoDB = async (userData: TUser) => {
+const createUserIntoDB = async (userData: IUser) => {
   const result = await User.create(userData);
   return result;
 };
 
-const createadminIntoDB = async (userData: Tadmin) => {
+const createadminIntoDB = async (userData: IAdmin) => {
   const result = await User.create(userData);
   return result;
 };
@@ -17,7 +17,7 @@ const getAllUsersFromDB = async () => {
   return result;
 };
 
-const updateUserIntoDB = async (id: string, payload: Partial<TUser>) => {
+const updateUserIntoDB = async (id: string, payload: Partial<IUser>) => {
   const result = await User.findByIdAndUpdate(id, payload);
   return result;
 };

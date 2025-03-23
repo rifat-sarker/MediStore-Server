@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 import bcrypt from "bcrypt";
-import { Schema, model } from "mongoose";
-import { IUser, USER_ROLE } from "./user.interface";
+import mongoose, { Schema, model } from "mongoose";
+import { IUser, USER_ROLE, UserModel } from "./user.interface";
 import config from "../../config";
 
 const userSchema = new Schema<IUser>(
@@ -52,4 +52,18 @@ userSchema.post("save", function (doc, next) {
   next();
 });
 
-export const User = model<IUser>("User", userSchema);
+userSchema.set("toJSON", {
+  transform: (_doc, ret) => {
+    delete ret.password;
+    return ret;
+  },
+});
+
+userSchema.statics.isPasswordMatched = async function (
+  plainTextPassword,
+  hashedPassword
+) {
+  return await bcrypt.compare(plainTextPassword, hashedPassword);
+};
+const User = mongoose.model<IUser, UserModel>("User", userSchema);
+export default User;
