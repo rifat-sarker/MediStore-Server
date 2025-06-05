@@ -4,7 +4,6 @@ import config from "../config";
 import catchAsync from "../utils/catchAsync";
 import AppError from "../errors/AppError";
 import httpStatus from "http-status";
-import { User } from "../modules/user/user.model";
 import { USER_ROLE } from "../modules/user/user.interface";
 
 const auth = (...requiredRoles: USER_ROLE[]) => {

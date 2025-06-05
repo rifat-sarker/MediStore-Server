@@ -1,8 +1,3 @@
-// /* eslint-disable @typescript-eslint/no-this-alias */
-// import bcrypt from "bcrypt";
-// import mongoose, { Schema, model } from "mongoose";
-// import { IUser, USER_ROLE, UserModel } from "./user.interface";
-// import config from "../../config";
 
 // const userSchema = new Schema<IUser>(
 //   {

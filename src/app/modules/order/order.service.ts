@@ -9,6 +9,7 @@ import { User } from "../user/user.model";
 import { Payment } from "../payment/payment.model";
 import Medicine from "../medicine/medicine.model";
 import { generateTransactionId } from "../payment/payment.utils";
+import User from "../user/user.model";
 
 const createOrder = async (
   orderData: Partial<IOrder>,
