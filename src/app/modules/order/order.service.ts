@@ -5,7 +5,6 @@ import { Order } from "./order.model";
 import QueryBuilder from "../../builder/QueryBuilder";
 import httpStatus from "http-status";
 import AppError from "../../errors/AppError";
-import { User } from "../user/user.model";
 import { Payment } from "../payment/payment.model";
 import Medicine from "../medicine/medicine.model";
 import { generateTransactionId } from "../payment/payment.utils";
