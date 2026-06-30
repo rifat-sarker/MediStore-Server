@@ -6,6 +6,8 @@ import handleZodError from '../errors/handleZodError';
 import AppError from '../errors/AppError';
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
+  console.error("🔥 GLOBAL ERROR:", err);
+  
   let statusCode = 500;
   let message = 'Something went wrong';
 
