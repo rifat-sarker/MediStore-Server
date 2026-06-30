@@ -24,5 +24,13 @@ export default {
   redis_url: process.env.REDIS_URL,
   // Frontend
   frontend_url: process.env.FRONTEND_URL || "http://localhost:3000",
+  // SMTP (Google)
+  smtp_host: process.env.SMTP_HOST || "smtp.gmail.com",
+  smtp_port: Number(process.env.SMTP_PORT) || 587,
+  smtp_email: process.env.SMTP_EMAIL,
+  smtp_pass: process.env.SMTP_PASS,
+  // Admin seed
+  admin_name: process.env.ADMIN_NAME || "Super Admin",
+  admin_email: process.env.ADMIN_EMAIL || "admin@medistore.com",
+  admin_password: process.env.ADMIN_PASSWORD || "Admin@12345",
 };
-

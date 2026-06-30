@@ -6,7 +6,10 @@ const CACHE_TTL = 60 * 5; // 5 minutes
 
 const createMedicineIntoDB = async (medicineData: any) => {
   const result = await prisma.medicine.create({
-    data: medicineData,
+    data: {
+      ...medicineData,
+      expiryDate: new Date(medicineData.expiryDate),
+    },
   });
   // Invalidate cache
   try {
@@ -14,6 +17,7 @@ const createMedicineIntoDB = async (medicineData: any) => {
   } catch {}
   return result;
 };
+
 
 const getAllMedicineFromDB = async (query: Record<string, unknown>) => {
   const {
@@ -118,9 +122,13 @@ const getASpecificMedicineFromDB = async (id: string) => {
 };
 
 const updateMedicineIntoDB = async (id: string, payload: any) => {
+  const data: any = { ...payload };
+  if (payload.expiryDate) {
+    data.expiryDate = new Date(payload.expiryDate);
+  }
   const result = await prisma.medicine.update({
     where: { id },
-    data: payload,
+    data,
   });
   // Invalidate cache
   try {
@@ -128,6 +136,7 @@ const updateMedicineIntoDB = async (id: string, payload: any) => {
   } catch {}
   return result;
 };
+
 
 const deleteMedicineFromDB = async (id: string) => {
   const result = await prisma.medicine.delete({ where: { id } });

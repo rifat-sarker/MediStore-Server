@@ -2,16 +2,19 @@ import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import { UserServices } from "./user.service";
 import httpStatus from "http-status";
+import { IJwtPayload } from "../auth/auth.interface";
+
+import { AuthService } from "../auth/auth.service";
 
 const createUser = catchAsync(async (req, res) => {
   const userData = req.body;
-  const result = await UserServices.createUserIntoDB(userData);
+  const result = await AuthService.register(userData);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "User is created succesfully",
-    data: result,
+    message: result.message,
+    data: null,
   });
 });
 
@@ -61,10 +64,22 @@ const deleteUser = catchAsync(async (req, res) => {
   });
 });
 
+const getMe = catchAsync(async (req, res) => {
+  const user = req.user as unknown as IJwtPayload;
+  const result = await UserServices.getUserById(user.userId);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Profile retrieved successfully",
+    data: result,
+  });
+});
+
 export const UserControllers = {
   createUser,
   createadmin,
   getAllUsers,
+  getMe,
   updateUser,
   deleteUser,
 };

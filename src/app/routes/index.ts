@@ -7,12 +7,13 @@ import { CategoryRoutes } from "../modules/category/category.routes";
 import { ReviewRoutes } from "../modules/review/review.routes";
 import { RiderRoutes } from "../modules/rider/rider.routes";
 import { PaymentRoutes } from "../modules/payment/payment.controller";
+import { UploadRoutes } from "../modules/upload/upload.routes";
 
 const router = Router();
 
 const moduleRoutes = [
   {
-    path: "/user",
+    path: "/users",
     route: UserRoutes,
   },
   {
@@ -42,7 +43,11 @@ const moduleRoutes = [
   {
     path: "/payment",
     route: PaymentRoutes,
-  }
+  },
+  {
+    path: "/upload",
+    route: UploadRoutes,
+  },
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));

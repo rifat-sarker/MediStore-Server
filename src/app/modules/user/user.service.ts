@@ -123,10 +123,32 @@ const deleteUserFromDB = async (id: string) => {
   return result;
 };
 
+const getUserById = async (id: string) => {
+  const result = await prisma.user.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      role: true,
+      phone: true,
+      address: true,
+      createdAt: true,
+      updatedAt: true,
+    },
+  });
+  if (!result) {
+    throw new AppError(httpStatus.NOT_FOUND, "User not found");
+  }
+  return result;
+};
+
 export const UserServices = {
   createUserIntoDB,
   createadminIntoDB,
   getAllUsersFromDB,
+  getUserById,
   updateUserIntoDB,
   deleteUserFromDB,
 };
+

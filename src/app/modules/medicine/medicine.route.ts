@@ -1,6 +1,5 @@
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import { MedicineController } from "./medicine.controller";
-import { multerUpload } from "../../config/multer.config";
 import validateRequest from "../../middlewares/validateRequest";
 import { MedicineValidation } from "./medicine.validation";
 import auth from "../../middlewares/auth";
@@ -8,35 +7,35 @@ import { Role } from "@prisma/client";
 
 const router = express.Router();
 
-// create medicine
+/**
+ * To add/update a medicine image:
+ *   1. POST /api/v1/upload  (multipart) → get imageUrl
+ *   2. Pass imageUrl as a string field in this JSON body
+ */
+
+// create medicine — JSON only, no form-data
 router.post(
   "/",
-  multerUpload.single("file"),
-  (req: Request, res: Response, next: NextFunction) => {
-    req.body = JSON.parse(req.body.data);
-    // Convert expiryDate to Date object
-    req.body.expiryDate = new Date(req.body.expiryDate);
-    // console.log("final data", req.body)
-    next();
-  },
+  auth(Role.ADMIN),
   validateRequest(MedicineValidation.createMedicineValidationSchema),
   MedicineController.createMedicine
 );
 
-// get all medicine
+// get all medicines (public)
 router.get("/", MedicineController.getAllMedicine);
 
-// get a single medicine route
+// get a single medicine (public)
 router.get("/:medicineId", MedicineController.getASpecificMedicine);
 
-//update medicine
+// update medicine — JSON only
 router.patch(
   "/:medicineId",
+  auth(Role.ADMIN),
   validateRequest(MedicineValidation.updateMedicineValidationSchema),
   MedicineController.updateMedicine
 );
 
-// delete a medicine
-router.delete("/:medicineId", MedicineController.deleteMedicine);
+// delete medicine
+router.delete("/:medicineId", auth(Role.ADMIN), MedicineController.deleteMedicine);
 
 export const MedicineRoutes = router;

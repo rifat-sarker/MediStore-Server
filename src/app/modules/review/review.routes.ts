@@ -5,11 +5,13 @@ import { Role } from "@prisma/client";
 
 const router = Router();
 
-router.get("/", 
-    auth(Role.CUSTOMER),
-     ReviewControllers.getAllReviews);
-router.post("/", 
-    auth(Role.CUSTOMER),
- ReviewControllers.createReview);
+// Public — anyone can read reviews
+router.get("/", ReviewControllers.getAllReviews);
+
+// Customers can post reviews
+router.post("/", auth(Role.CUSTOMER, Role.ADMIN), ReviewControllers.createReview);
+
+// Customer (own) or Admin can delete
+router.delete("/:reviewId", auth(Role.CUSTOMER, Role.ADMIN), ReviewControllers.deleteReview);
 
 export const ReviewRoutes = router;

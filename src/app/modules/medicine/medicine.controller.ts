@@ -3,37 +3,24 @@ import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import { MedicineServices } from "./medicine.service";
 
-// create medicine
+// create medicine — imageUrl comes from req.body (uploaded via /upload first)
 const createMedicine = catchAsync(async (req, res) => {
-  const medicineData = req.body; 
-  // console.log(medicineData);
-  const file = req.file;
-
-  if (!file) {
-    throw new Error("Image file is required");
-  }
-
-  const result = await MedicineServices.createMedicineIntoDB({
-    ...medicineData,
-    image: file.path,
-  });
-
+  const result = await MedicineServices.createMedicineIntoDB(req.body);
   sendResponse(res, {
-    statusCode: httpStatus.OK,
+    statusCode: httpStatus.CREATED,
     success: true,
-    message: "Medicine is created successfully",
+    message: "Medicine created successfully",
     data: result,
   });
 });
 
-//get all medicine
+// get all medicines
 const getAllMedicine = catchAsync(async (req, res) => {
   const result = await MedicineServices.getAllMedicineFromDB(req.query);
-
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Medicines retrieved successfully',
+    message: "Medicines retrieved successfully",
     meta: result.meta,
     data: result.result,
   });
@@ -43,21 +30,22 @@ const getAllMedicine = catchAsync(async (req, res) => {
 const getASpecificMedicine = catchAsync(async (req, res) => {
   const { medicineId } = req.params;
   const result = await MedicineServices.getASpecificMedicineFromDB(medicineId);
-  res.status(200).json({
-    message: 'Get a specific medicine successfully',
-    status: true,
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Medicine retrieved successfully",
     data: result,
   });
 });
 
-//  update Medicine
+// update medicine
 const updateMedicine = catchAsync(async (req, res) => {
   const { medicineId } = req.params;
   const result = await MedicineServices.updateMedicineIntoDB(medicineId, req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Medicine updated successfully',
+    message: "Medicine updated successfully",
     data: result,
   });
 });
@@ -66,15 +54,13 @@ const updateMedicine = catchAsync(async (req, res) => {
 const deleteMedicine = catchAsync(async (req, res) => {
   const { medicineId } = req.params;
   await MedicineServices.deleteMedicineFromDB(medicineId);
-
-  res.send({
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
     message: "Medicine deleted successfully",
-    status: true,
-    data: {},
+    data: null,
   });
 });
-
-
 
 export const MedicineController = {
   createMedicine,
