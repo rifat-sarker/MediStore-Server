@@ -1,125 +1,75 @@
-import QueryBuilder from "../../builder/QueryBuilder";
-import { IJwtPayload } from "../auth/auth.interface";
-import { ICategory } from "./category.interface";
-import { Category } from "./category.model";
-import { USER_ROLE } from "../user/user.interface";
-
-import httpStatus from "http-status";
+import prisma from "../../utils/prisma";
 import AppError from "../../errors/AppError";
-import Medicine from "../medicine/medicine.model";
+import httpStatus from "http-status";
 import { IImageFile } from "../../interface/IImageFile";
+import { IJwtPayload } from "../auth/auth.interface";
 
 const createCategory = async (
-  categoryData: Partial<ICategory>,
+  categoryData: any,
   icon: IImageFile,
   authUser: IJwtPayload
 ) => {
-  const category = new Category({
-    ...categoryData,
-    createdBy: authUser.userId,
-    icon: icon?.path,
+  const result = await prisma.category.create({
+    data: {
+      name: categoryData.name,
+      imageUrl: icon?.path || null,
+    },
   });
-
-  const result = await category.save();
 
   return result;
 };
 
 const getAllCategory = async (query: Record<string, unknown>) => {
-  const categoryQuery = new QueryBuilder(
-    Category.find().populate("parent"),
-    query
-  )
-    .search(["name", "slug"])
-    .filter()
-    .sort()
-    .paginate()
-    .fields();
-
-  const categories = await categoryQuery.modelQuery;
-  const meta = await categoryQuery.countTotal();
-
-  const categoryMap = new Map<string, any>();
-  const hierarchy: any[] = [];
-
-  categories.forEach((category: any) => {
-    categoryMap.set(category._id.toString(), {
-      ...category.toObject(),
-      children: [],
-    });
-  });
-
-  categories.forEach((category: any) => {
-    const parentId = category.parent?._id?.toString();
-    if (parentId && categoryMap.has(parentId)) {
-      categoryMap
-        .get(parentId)
-        .children.push(categoryMap.get(category._id.toString()));
-    } else if (!parentId) {
-      hierarchy.push(categoryMap.get(category._id.toString()));
-    }
-  });
-
+  const categories = await prisma.category.findMany();
+  
   return {
-    meta,
-    result: hierarchy,
+    meta: {
+      total: categories.length,
+    },
+    result: categories,
   };
 };
 
 const updateCategoryIntoDB = async (
   id: string,
-  payload: Partial<ICategory>,
+  payload: any,
   file: IImageFile,
   authUser: IJwtPayload
 ) => {
-  const isCategoryExist = await Category.findById(id);
+  const isCategoryExist = await prisma.category.findUnique({ where: { id } });
+  
   if (!isCategoryExist) {
     throw new AppError(httpStatus.NOT_FOUND, "Category not found!");
   }
 
-  if (
-    authUser.role === USER_ROLE.customer &&
-    isCategoryExist.createdBy.toString() !== authUser.userId
-  ) {
-    throw new AppError(
-      httpStatus.BAD_REQUEST,
-      "You are not able to edit the category!"
-    );
-  }
-
   if (file && file.path) {
-    payload.icon = file.path;
+    payload.imageUrl = file.path;
   }
 
-  const result = await Category.findByIdAndUpdate(id, payload, { new: true });
+  const result = await prisma.category.update({
+    where: { id },
+    data: payload,
+  });
 
   return result;
 };
 
 const deleteCategoryIntoDB = async (id: string, authUser: IJwtPayload) => {
-  const isBrandExist = await Category.findById(id);
-  if (!isBrandExist) {
+  const isCategoryExist = await prisma.category.findUnique({ where: { id } });
+  if (!isCategoryExist) {
     throw new AppError(httpStatus.NOT_FOUND, "Category not found!");
   }
 
-  if (
-    authUser.role === USER_ROLE.customer &&
-    isBrandExist.createdBy.toString() !== authUser.userId
-  ) {
+  const productsCount = await prisma.medicine.count({ where: { categoryId: id } });
+  
+  if (productsCount > 0) {
     throw new AppError(
       httpStatus.BAD_REQUEST,
-      "You are not able to delete the Category!"
+      "You can not delete the Category because it is related to products."
     );
   }
 
-  const product = await Medicine.findOne({ category: id });
-  if (product)
-    throw new AppError(
-      httpStatus.BAD_REQUEST,
-      "You can not delete the Category. Because the Category is related to products."
-    );
-
-  const deletedCategory = await Category.findByIdAndDelete(id);
+  const deletedCategory = await prisma.category.delete({ where: { id } });
   return deletedCategory;
 };
 

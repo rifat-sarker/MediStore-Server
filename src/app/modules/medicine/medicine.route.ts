@@ -4,7 +4,7 @@ import { multerUpload } from "../../config/multer.config";
 import validateRequest from "../../middlewares/validateRequest";
 import { MedicineValidation } from "./medicine.validation";
 import auth from "../../middlewares/auth";
-import { USER_ROLE } from "../user/user.interface";
+import { Role } from "@prisma/client";
 
 const router = express.Router();
 

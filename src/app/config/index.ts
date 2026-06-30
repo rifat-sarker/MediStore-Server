@@ -16,4 +16,13 @@ export default {
   cloudinary_cloud_name: process.env.CLOUDINARRY_CLOUD_NAME,
   cloudinary_api_secret: process.env.CLOUDINARRY_API_SECRET,
   cloudinary_api_key: process.env.CLOUDINARRY_API_KEY,
+  // SSL Commerz
+  ssl_store_id: process.env.SSL_STORE_ID,
+  ssl_store_passwd: process.env.SSL_STORE_PASSWD,
+  ssl_is_live: process.env.SSL_IS_LIVE === "true",
+  // Redis
+  redis_url: process.env.REDIS_URL,
+  // Frontend
+  frontend_url: process.env.FRONTEND_URL || "http://localhost:3000",
 };
+

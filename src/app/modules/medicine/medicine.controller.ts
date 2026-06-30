@@ -2,7 +2,6 @@ import httpStatus from "http-status";
 import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import { MedicineServices } from "./medicine.service";
-import { updateMedicineStock } from "./medicine.utility";
 
 // create medicine
 const createMedicine = catchAsync(async (req, res) => {
@@ -55,7 +54,6 @@ const getASpecificMedicine = catchAsync(async (req, res) => {
 const updateMedicine = catchAsync(async (req, res) => {
   const { medicineId } = req.params;
   const result = await MedicineServices.updateMedicineIntoDB(medicineId, req.body);
-  await updateMedicineStock(medicineId);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

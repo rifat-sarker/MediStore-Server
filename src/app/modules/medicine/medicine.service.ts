@@ -1,40 +1,45 @@
-import QueryBuilder from "../../builder/QueryBuilder";
-import { medicineSearchableFields } from "./medicine.constant";
-import { IMedicine } from "./medicine.interface";
-import Medicine from "./medicine.model";
+import prisma from "../../utils/prisma";
+import redisClient from "../../utils/redis";
 
-const createMedicineIntoDB = async (medicineData: IMedicine) => {
-  const result = await Medicine.create(medicineData);
+const CACHE_KEY = "medicines:all";
+const CACHE_TTL = 60 * 5; // 5 minutes
+
+const createMedicineIntoDB = async (medicineData: any) => {
+  const result = await prisma.medicine.create({
+    data: medicineData,
+  });
+  // Invalidate cache
+  try {
+    await redisClient.del(CACHE_KEY);
+  } catch {}
   return result;
 };
-
-// const getAllMedicineFromDB = async (query: Record<string, unknown>) => {
-//   const medicineQuery = new QueryBuilder(Medicine.find().populate('category').populate('type'), query)
-//     .search(medicineSearchableFields)
-//     .filter()
-//     .sort()
-//     .paginate()
-//     .fields();
-//   const meta = await medicineQuery.countTotal();
-//   const result = await medicineQuery.modelQuery;
-//   return { meta, result };
-// };
 
 const getAllMedicineFromDB = async (query: Record<string, unknown>) => {
   const {
     minPrice,
     maxPrice,
     categories,
-    types,
     inStock,
-    ratings,
-    ...pQuery
+    searchTerm,
+    page = 1,
+    limit = 10,
   } = query;
 
-  // Build the filter object
-  const filter: Record<string, any> = {};
+  const hasFilters = minPrice || maxPrice || categories || inStock || searchTerm || Number(page) !== 1;
 
-  // Filter by categories
+  // Try cache only for default listing (no filters, page 1)
+  if (!hasFilters) {
+    try {
+      const cached = await redisClient.get(CACHE_KEY);
+      if (cached) {
+        return JSON.parse(cached);
+      }
+    } catch {}
+  }
+
+  const filter: any = {};
+
   if (categories) {
     const categoryArray =
       typeof categories === "string"
@@ -42,67 +47,93 @@ const getAllMedicineFromDB = async (query: Record<string, unknown>) => {
         : Array.isArray(categories)
         ? categories
         : [categories];
-    filter.category = { $in: categoryArray };
+    filter.categoryId = { in: categoryArray };
   }
 
-  // Filter by types
-  if (types) {
-    const typeArray =
-      typeof types === "string"
-        ? types.split(",")
-        : Array.isArray(types)
-        ? types
-        : [types];
-    filter.brand = { $in: typeArray };
-  }
-
-  // Filter by in stock/out of stock
   if (inStock !== undefined) {
-    filter.stock = inStock === "true" ? { $gt: 0 } : 0;
+    filter.stock = inStock === "true" ? { gt: 0 } : 0;
   }
 
-  const productQuery = new QueryBuilder(
-    Medicine.find(filter)
-      .populate("category", "name")
-      .populate("type", "name"),
-    pQuery
-  )
-    .search(["name", "description"])
-    .filter()
-    .sort()
-    .paginate()
-    .fields()
-    .priceRange(Number(minPrice) || 0, Number(maxPrice) || Infinity);
+  if (searchTerm) {
+    filter.OR = [
+      { name: { contains: searchTerm as string, mode: "insensitive" } },
+      { description: { contains: searchTerm as string, mode: "insensitive" } },
+      { manufacturer: { contains: searchTerm as string, mode: "insensitive" } },
+    ];
+  }
 
-  const products = await productQuery.modelQuery.lean();
+  if (minPrice !== undefined || maxPrice !== undefined) {
+    filter.price = {};
+    if (minPrice !== undefined) filter.price.gte = Number(minPrice);
+    if (maxPrice !== undefined) filter.price.lte = Number(maxPrice);
+  }
 
-  const meta = await productQuery.countTotal();
+  const skip = (Number(page) - 1) * Number(limit);
+  const take = Number(limit);
 
-  return {
-    meta,
+  const [products, total] = await Promise.all([
+    prisma.medicine.findMany({
+      where: filter,
+      skip,
+      take,
+      include: { category: true },
+      orderBy: { createdAt: "desc" },
+    }),
+    prisma.medicine.count({ where: filter }),
+  ]);
+
+  const data = {
+    meta: {
+      page: Number(page),
+      limit: Number(limit),
+      total,
+      totalPage: Math.ceil(total / Number(limit)),
+    },
     result: products,
   };
+
+  // Cache only unfiltered results
+  if (!hasFilters) {
+    try {
+      await redisClient.setEx(CACHE_KEY, CACHE_TTL, JSON.stringify(data));
+    } catch {}
+  }
+
+  return data;
 };
 
-
-const getASpecificMedicineFromDB = async (_id: string) => {
-  const result = await Medicine.findOne({ _id });
-  return result;
-};
-
-const updateMedicineIntoDB = async (
-  _id: string,
-  payload: Partial<IMedicine>
-) => {
-  const result = await Medicine.findByIdAndUpdate(_id, payload, {
-    new: true,
-    runValidators: true,
+const getASpecificMedicineFromDB = async (id: string) => {
+  const result = await prisma.medicine.findUnique({
+    where: { id },
+    include: {
+      category: true,
+      reviews: {
+        include: { user: { select: { name: true } } },
+        orderBy: { createdAt: "desc" },
+        take: 10,
+      },
+    },
   });
   return result;
 };
 
-const deleteMedicineFromDB = async (_id: string) => {
-  const result = await Medicine.findByIdAndDelete(_id);
+const updateMedicineIntoDB = async (id: string, payload: any) => {
+  const result = await prisma.medicine.update({
+    where: { id },
+    data: payload,
+  });
+  // Invalidate cache
+  try {
+    await redisClient.del(CACHE_KEY);
+  } catch {}
+  return result;
+};
+
+const deleteMedicineFromDB = async (id: string) => {
+  const result = await prisma.medicine.delete({ where: { id } });
+  try {
+    await redisClient.del(CACHE_KEY);
+  } catch {}
   return result;
 };
 

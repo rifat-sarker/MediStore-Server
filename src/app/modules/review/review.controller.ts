@@ -1,29 +1,42 @@
-
 import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
-import { ReviewServices } from './review.service';
+import { ReviewService } from './review.service';
+import { IJwtPayload } from '../auth/auth.interface';
 
 const createReview = catchAsync(async (req, res) => {
-   const user = req.user;
-   console.log(user);
+   const user = req.user as unknown as IJwtPayload;
    const review = req.body;
-   const result = await ReviewServices.createReview(review, user);
+   const result = await ReviewService.createReviewIntoDB(review, user);
 
    sendResponse(res, {
-      statusCode: httpStatus.OK,
+      statusCode: httpStatus.CREATED,
       success: true,
       message: 'Review created successfully',
       data: result,
    });
 });
+
 const getAllReviews = catchAsync(async (req, res) => {
-   const result = await ReviewServices.getAllReviews(req.query);
+   const result = await ReviewService.getAllReviewsFromDB(req.query);
 
    sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'Review fetched successfully',
+      message: 'Reviews fetched successfully',
+      data: result,
+   });
+});
+
+const deleteReview = catchAsync(async (req, res) => {
+   const { reviewId } = req.params;
+   const user = req.user as unknown as IJwtPayload;
+   const result = await ReviewService.deleteReviewFromDB(reviewId, user);
+
+   sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Review deleted successfully',
       data: result,
    });
 });
@@ -31,4 +44,5 @@ const getAllReviews = catchAsync(async (req, res) => {
 export const ReviewControllers = {
    createReview,
    getAllReviews,
+   deleteReview,
 };

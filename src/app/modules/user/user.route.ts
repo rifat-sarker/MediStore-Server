@@ -4,7 +4,7 @@ import { adminValidations } from "../admin/admin.validation";
 import { UserValidation } from "./user.validation";
 import { UserControllers } from "./user.controller";
 import auth from "../../middlewares/auth";
-import { USER_ROLE } from "./user.interface";
+import { Role } from "@prisma/client";
 
 const router = express.Router();
 router.post(
@@ -15,7 +15,7 @@ router.post(
 router.get("/", UserControllers.getAllUsers);
 router.post(
   "/create-admin",
-  auth(USER_ROLE.admin),
+  auth(Role.ADMIN),
   validateRequest(adminValidations.createadminValidationSchema),
   UserControllers.createadmin
 );

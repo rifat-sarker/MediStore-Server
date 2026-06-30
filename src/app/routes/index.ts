@@ -4,9 +4,9 @@ import { AuthRoutes } from "../modules/auth/auth.routes";
 import { MedicineRoutes } from "../modules/medicine/medicine.route";
 import { OrderRoutes } from "../modules/order/order.routes";
 import { CategoryRoutes } from "../modules/category/category.routes";
-import { TypeRoutes } from "../modules/type/type.routes";
 import { ReviewRoutes } from "../modules/review/review.routes";
-import { WishlistRoutes } from "../modules/wishlist/wishlist.route";
+import { RiderRoutes } from "../modules/rider/rider.routes";
+import { PaymentRoutes } from "../modules/payment/payment.controller";
 
 const router = Router();
 
@@ -32,16 +32,16 @@ const moduleRoutes = [
     route: CategoryRoutes,
   },
   {
-    path: "/types",
-    route: TypeRoutes,
-  },
-  {
     path: "/reviews",
-    route: ReviewRoutes
+    route: ReviewRoutes,
   },
   {
-    path: "/wishlist",
-    route: WishlistRoutes
+    path: "/riders",
+    route: RiderRoutes,
+  },
+  {
+    path: "/payment",
+    route: PaymentRoutes,
   }
 ];
 

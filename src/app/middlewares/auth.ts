@@ -4,14 +4,13 @@ import config from "../config";
 import catchAsync from "../utils/catchAsync";
 import AppError from "../errors/AppError";
 import httpStatus from "http-status";
-import { USER_ROLE } from "../modules/user/user.interface";
-import User from "../modules/user/user.model";
+import { Role } from "@prisma/client";
+import prisma from "../utils/prisma";
 
-const auth = (...requiredRoles: USER_ROLE[]) => {
+const auth = (...requiredRoles: Role[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
 
-    // console.log(token);
     if (!token) {
       throw new AppError(httpStatus.UNAUTHORIZED, "You are not authorized!");
     }
@@ -24,13 +23,15 @@ const auth = (...requiredRoles: USER_ROLE[]) => {
 
       const { role, email } = decoded;
 
-      const user = await User.findOne({ email, role});
+      const user = await prisma.user.findFirst({
+        where: { email, role: role as Role }
+      });
 
       if (!user) {
         throw new AppError(httpStatus.NOT_FOUND, "This user is not found!");
       }
 
-      if (requiredRoles && !requiredRoles.includes(role)) {
+      if (requiredRoles && requiredRoles.length > 0 && !requiredRoles.includes(role as Role)) {
         throw new AppError(httpStatus.UNAUTHORIZED, "You are not authorized!");
       }
 

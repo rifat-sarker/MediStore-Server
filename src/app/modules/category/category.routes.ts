@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { multerUpload } from "../../config/multer.config";
-import { USER_ROLE } from "../user/user.interface";
+import { Role } from "@prisma/client";
 import { categoryValidation } from "./category.validation";
 import validateRequest from "../../middlewares/validateRequest";
 import { parseBody } from "../../middlewares/bodyParser";
@@ -13,7 +13,7 @@ router.get("/", CategoryController.getAllCategory);
 
 router.post(
   "/",
-  auth(USER_ROLE.customer),
+  auth(Role.CUSTOMER),
   multerUpload.single("icon"),
   parseBody,
   validateRequest(categoryValidation.createCategoryValidationSchema),
@@ -22,7 +22,7 @@ router.post(
 
 router.patch(
   "/:id",
-  auth(USER_ROLE.customer),
+  auth(Role.CUSTOMER),
   multerUpload.single("icon"),
   parseBody,
   validateRequest(categoryValidation.updateCategoryValidationSchema),
@@ -31,7 +31,7 @@ router.patch(
 
 router.delete(
   "/:id",
-  auth(USER_ROLE.customer),
+  auth(Role.CUSTOMER),
   CategoryController.deleteCategory
 );
 

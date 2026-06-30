@@ -32,7 +32,7 @@ const getAllCategory = catchAsync(async (req, res) => {
     statusCode: httpStatus.OK,
     success: true,
     message: "category are retrieved succesfully",
-    meta: result.meta,
+    meta: result.meta as any,
     data: result.result,
   });
 });
