@@ -72,7 +72,8 @@ const createOrder = async (orderData: any, authUser: IJwtPayload) => {
       await redisClient.del("medicines:all");
     } catch {}
 
-    // Initiate SSL Commerz payment if online payment
+    // Initiate SSL Commerz payment if online payment (TEMPORARILY DISABLED AS PER REQUEST)
+    /*
     if (
       !orderData.paymentMethod ||
       orderData.paymentMethod === "SSLCOMMERZ"
@@ -96,6 +97,7 @@ const createOrder = async (orderData: any, authUser: IJwtPayload) => {
         paymentUrl: sslResponse?.GatewayPageURL || null,
       };
     }
+    */
 
     return { order: createdOrder, paymentUrl: null };
   });

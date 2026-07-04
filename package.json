@@ -10,6 +10,7 @@
     "deploy": "bun run build && vercel && vercel --prod"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
     "@types/bcrypt": "^5.0.2",
     "@types/bun": "latest",
     "@types/cors": "^2.8.17",

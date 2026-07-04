@@ -76,20 +76,39 @@ const createadminIntoDB = async (userData: any) => {
   return result;
 };
 
-const getAllUsersFromDB = async () => {
-  const result = await prisma.user.findMany({
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      role: true,
-      phone: true,
-      address: true,
-      createdAt: true,
-      updatedAt: true,
-    }
-  });
-  return result;
+const getAllUsersFromDB = async (query: Record<string, unknown> = {}) => {
+  const { page = 1, limit = 10 } = query;
+  const skip = (Number(page) - 1) * Number(limit);
+  const take = Number(limit);
+
+  const [users, total] = await Promise.all([
+    prisma.user.findMany({
+      skip,
+      take,
+      orderBy: { createdAt: "desc" },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        phone: true,
+        address: true,
+        createdAt: true,
+        updatedAt: true,
+      }
+    }),
+    prisma.user.count()
+  ]);
+
+  return {
+    meta: {
+      page: Number(page),
+      limit: Number(limit),
+      total,
+      totalPage: Math.ceil(total / Number(limit))
+    },
+    result: users
+  };
 };
 
 const updateUserIntoDB = async (id: string, payload: any) => {

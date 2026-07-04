@@ -33,12 +33,13 @@ const createadmin = catchAsync(async (req, res) => {
 });
 
 const getAllUsers = catchAsync(async (req, res) => {
-  const result = await UserServices.getAllUsersFromDB();
+  const result = await UserServices.getAllUsersFromDB(req.query);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: "User retrieved succesfully",
-    data: result,
+    meta: result.meta as any,
+    data: result.result,
   });
 });
 

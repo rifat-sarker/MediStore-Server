@@ -12,12 +12,27 @@ const createCategory = async (categoryData: { name: string; imageUrl?: string })
   return result;
 };
 
-const getAllCategory = async (query: Record<string, unknown>) => {
-  const categories = await prisma.category.findMany({
-    orderBy: { name: "asc" },
-  });
+const getAllCategory = async (query: Record<string, unknown> = {}) => {
+  const { page = 1, limit = 10 } = query;
+  const skip = (Number(page) - 1) * Number(limit);
+  const take = Number(limit);
+
+  const [categories, total] = await Promise.all([
+    prisma.category.findMany({
+      skip,
+      take,
+      orderBy: { name: "asc" },
+    }),
+    prisma.category.count()
+  ]);
+
   return {
-    meta: { total: categories.length },
+    meta: { 
+      page: Number(page),
+      limit: Number(limit),
+      total,
+      totalPage: Math.ceil(total / Number(limit))
+    },
     result: categories,
   };
 };
@@ -27,9 +42,32 @@ const updateCategoryIntoDB = async (id: string, payload: any) => {
   if (!isCategoryExist) {
     throw new AppError(httpStatus.NOT_FOUND, "Category not found!");
   }
+
+  // Map `title` → `name` if frontend sends `title`
+  const updateData: { name?: string; imageUrl?: string } = {};
+  if (payload.name !== undefined) updateData.name = payload.name;
+  if (payload.title !== undefined) updateData.name = payload.title;
+  if (payload.imageUrl !== undefined) updateData.imageUrl = payload.imageUrl;
+
+  // Check if another category already has this name (unique constraint)
+  if (updateData.name) {
+    const duplicate = await prisma.category.findFirst({
+      where: {
+        name: { equals: updateData.name, mode: "insensitive" },
+        id: { not: id },
+      },
+    });
+    if (duplicate) {
+      throw new AppError(
+        httpStatus.CONFLICT,
+        `Category with name "${updateData.name}" already exists!`
+      );
+    }
+  }
+
   const result = await prisma.category.update({
     where: { id },
-    data: payload,
+    data: updateData,
   });
   return result;
 };

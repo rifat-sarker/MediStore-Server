@@ -5,12 +5,13 @@ import sendResponse from "../../utils/sendResponse";
 import httpStatus from "http-status";
 
 const getAllRiders = catchAsync(async (req: Request, res: Response) => {
-  const result = await RiderService.getAllRiders();
+  const result = await RiderService.getAllRiders(req.query);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: "Riders retrieved successfully",
-    data: result,
+    meta: result.meta as any,
+    data: result.result,
   });
 });
 
