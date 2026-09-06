@@ -4,13 +4,15 @@ import * as bcrypt from 'bcrypt';
 async function main() {
   console.log('Seeding all demo data...');
 
-  // 1. Create Users (Admin, Customers, Riders)
-  const hashedPassword = await bcrypt.hash('password123', 12);
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@medistore.com';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'password123';
+  const adminName = process.env.ADMIN_NAME || 'Admin User';
+  const hashedPassword = await bcrypt.hash(adminPassword, 12);
   
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@medistore.com' },
-    update: {},
-    create: { name: 'Admin User', email: 'admin@medistore.com', password: hashedPassword, role: 'ADMIN', phone: '01700000000', address: 'Admin HQ' },
+    where: { email: adminEmail },
+    update: { password: hashedPassword },
+    create: { name: adminName, email: adminEmail, password: hashedPassword, role: 'ADMIN', phone: '01700000000', address: 'Admin HQ' },
   });
 
   const customer1 = await prisma.user.upsert({

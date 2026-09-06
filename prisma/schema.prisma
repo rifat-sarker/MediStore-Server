@@ -49,75 +49,75 @@ model User {
 }
 
 model RiderProfile {
-  id           String @id @default(uuid())
-  userId       String @unique
-  vehicleInfo  String?
-  licenseNo    String?
-  currentStatus String @default("AVAILABLE") // AVAILABLE, BUSY, OFFLINE
-  isVerified   Boolean @default(false)
-  
-  user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  deliveries   Order[]
+  id            String  @id @default(uuid())
+  userId        String  @unique
+  vehicleInfo   String?
+  licenseNo     String?
+  currentStatus String  @default("AVAILABLE") // AVAILABLE, BUSY, OFFLINE
+  isVerified    Boolean @default(false)
+
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  deliveries Order[]
 }
 
 model Category {
-  id        String   @id @default(uuid())
-  name      String   @unique
+  id        String     @id @default(uuid())
+  name      String     @unique
   imageUrl  String?
   medicines Medicine[]
 }
 
 model Medicine {
-  id                  String   @id @default(uuid())
-  name                String
-  description         String
-  price               Float
-  stock               Int
-  requiredPrescription Boolean @default(false)
-  manufacturer        String
-  expiryDate          DateTime
-  imageUrl            String?
-  
-  categoryId          String
-  category            Category @relation(fields: [categoryId], references: [id])
-  
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+  id                   String   @id @default(uuid())
+  name                 String
+  description          String
+  price                Float
+  stock                Int
+  requiredPrescription Boolean  @default(false)
+  manufacturer         String
+  expiryDate           DateTime
+  imageUrl             String?
 
-  orderItems          OrderItem[]
-  reviews             Review[]
-  subscriptions       Subscription[]
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  orderItems    OrderItem[]
+  reviews       Review[]
+  subscriptions Subscription[]
 }
 
 model Order {
-  id            String        @id @default(uuid())
-  userId        String
-  riderId       String?
-  totalAmount   Float
-  status        OrderStatus   @default(PENDING)
-  paymentStatus PaymentStatus @default(PENDING)
-  paymentMethod String        @default("SSLCOMMERZ") // SSLCOMMERZ, STRIPE, COD
-  transactionId String?       @unique
-  prescriptionUrl String?     // Uploaded prescription image URL if required
+  id              String        @id @default(uuid())
+  userId          String
+  riderId         String?
+  totalAmount     Float
+  status          OrderStatus   @default(PENDING)
+  paymentStatus   PaymentStatus @default(PENDING)
+  paymentMethod   String        @default("SSLCOMMERZ") // SSLCOMMERZ, STRIPE, COD
+  transactionId   String?       @unique
+  prescriptionUrl String? // Uploaded prescription image URL if required
   shippingAddress String
-  
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
 
-  user          User          @relation(fields: [userId], references: [id])
-  rider         RiderProfile? @relation(fields: [riderId], references: [id])
-  items         OrderItem[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User          @relation(fields: [userId], references: [id])
+  rider RiderProfile? @relation(fields: [riderId], references: [id])
+  items OrderItem[]
 }
 
 model OrderItem {
-  id         String   @id @default(uuid())
+  id         String @id @default(uuid())
   orderId    String
   medicineId String
   quantity   Int
   price      Float
-  
-  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  medicine   Medicine @relation(fields: [medicineId], references: [id])
+
+  order    Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  medicine Medicine @relation(fields: [medicineId], references: [id])
 }
 
 model Review {
@@ -128,29 +128,29 @@ model Review {
   comment    String?
   createdAt  DateTime @default(now())
 
-  user       User     @relation(fields: [userId], references: [id])
-  medicine   Medicine @relation(fields: [medicineId], references: [id])
+  user     User     @relation(fields: [userId], references: [id])
+  medicine Medicine @relation(fields: [medicineId], references: [id])
 }
 
 model Subscription {
-  id         String   @id @default(uuid())
-  userId     String
-  medicineId String
-  quantity   Int
-  intervalDays Int    @default(30)
-  nextDate   DateTime
-  isActive   Boolean  @default(true)
-  
-  createdAt  DateTime @default(now())
+  id           String   @id @default(uuid())
+  userId       String
+  medicineId   String
+  quantity     Int
+  intervalDays Int      @default(30)
+  nextDate     DateTime
+  isActive     Boolean  @default(true)
 
-  user       User     @relation(fields: [userId], references: [id])
-  medicine   Medicine @relation(fields: [medicineId], references: [id])
+  createdAt DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id])
+  medicine Medicine @relation(fields: [medicineId], references: [id])
 }
 
 model Coupon {
-  id         String   @id @default(uuid())
-  code       String   @unique
+  id          String   @id @default(uuid())
+  code        String   @unique
   discountPct Float
-  expiryDate DateTime
-  isActive   Boolean  @default(true)
+  expiryDate  DateTime
+  isActive    Boolean  @default(true)
 }
