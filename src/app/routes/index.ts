@@ -8,6 +8,8 @@ import { ReviewRoutes } from "../modules/review/review.routes";
 import { RiderRoutes } from "../modules/rider/rider.routes";
 import { PaymentRoutes } from "../modules/payment/payment.controller";
 import { UploadRoutes } from "../modules/upload/upload.routes";
+import { CouponRoutes } from "../modules/coupon/coupon.routes";
+import { AdminRoutes } from "../modules/admin/admin.routes";
 
 const router = Router();
 
@@ -47,6 +49,14 @@ const moduleRoutes = [
   {
     path: "/upload",
     route: UploadRoutes,
+  },
+  {
+    path: "/coupons",
+    route: CouponRoutes,
+  },
+  {
+    path: "/admin",
+    route: AdminRoutes,
   },
 ];
 
