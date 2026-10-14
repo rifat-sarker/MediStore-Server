@@ -141,12 +141,26 @@ const getRiderDeliveries = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const cancelOrder = catchAsync(async (req: Request, res: Response) => {
+  const result = await OrderService.cancelOrder(
+    req.params.orderId,
+    req.user as unknown as IJwtPayload
+  );
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: result.message,
+    data: null,
+  });
+});
+
 export const OrderController = {
   createOrder,
   getOrders,
   getOrderDetails,
   getMyOrders,
   changeOrderStatus,
+  cancelOrder,
   verifyPrescription,
   assignRider,
   updateDeliveryStatus,

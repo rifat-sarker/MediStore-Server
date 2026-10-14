@@ -8,6 +8,7 @@ const router = Router();
 // Customer routes
 router.post("/", auth(Role.CUSTOMER, Role.ADMIN), OrderController.createOrder);
 router.get("/my-orders", auth(Role.CUSTOMER), OrderController.getMyOrders);
+router.patch("/:orderId/cancel", auth(Role.CUSTOMER, Role.ADMIN), OrderController.cancelOrder);
 
 // Admin routes
 router.get("/get-orders", auth(Role.ADMIN), OrderController.getOrders);
@@ -23,3 +24,4 @@ router.get("/:orderId", auth(Role.CUSTOMER, Role.ADMIN, Role.RIDER), OrderContro
 router.patch("/:orderId/status", auth(Role.ADMIN), OrderController.changeOrderStatus);
 
 export const OrderRoutes = router;
+

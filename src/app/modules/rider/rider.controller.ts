@@ -36,8 +36,21 @@ const verifyRider = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updateStatus = catchAsync(async (req: Request, res: Response) => {
+  const authUser = req.user as any;
+  const { status } = req.body;
+  const result = await RiderService.updateRiderStatus(authUser.userId, status);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Status updated successfully",
+    data: result,
+  });
+});
+
 export const RiderController = {
   getAllRiders,
   getAvailableRiders,
-  verifyRider
+  verifyRider,
+  updateStatus,
 };

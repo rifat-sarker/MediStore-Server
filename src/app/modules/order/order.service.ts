@@ -72,32 +72,28 @@ const createOrder = async (orderData: any, authUser: IJwtPayload) => {
       await redisClient.del("medicines:all");
     } catch {}
 
-    // Initiate SSL Commerz payment if online payment (TEMPORARILY DISABLED AS PER REQUEST)
-    /*
+    // Initiate SSL Commerz payment for online payment
     if (
       !orderData.paymentMethod ||
       orderData.paymentMethod === "SSLCOMMERZ"
     ) {
-      const user = await tx.user.findUnique({
-        where: { id: authUser.userId },
-      });
-
-      const sslResponse = await initiateSSLCommerzPayment({
-        amount: totalAmount,
-        transactionId,
-        customerName: user?.name || authUser.name || "Customer",
-        customerEmail: authUser.email,
-        customerPhone: authUser.phone || user?.phone || "01700000000",
-        customerAddress: user?.address || "Dhaka, Bangladesh",
-        shippingAddress: orderData.shippingAddress || "Dhaka, Bangladesh",
-      });
-
-      return {
-        order: createdOrder,
-        paymentUrl: sslResponse?.GatewayPageURL || null,
-      };
+      try {
+        const user = await tx.user.findUnique({ where: { id: authUser.userId } });
+        const sslResponse = await initiateSSLCommerzPayment({
+          amount: totalAmount,
+          transactionId,
+          customerName: user?.name || "Customer",
+          customerEmail: authUser.email,
+          customerPhone: user?.phone || "01700000000",
+          customerAddress: user?.address || "Dhaka, Bangladesh",
+          shippingAddress: orderData.shippingAddress || "Dhaka, Bangladesh",
+        });
+        return { order: createdOrder, paymentUrl: sslResponse?.GatewayPageURL || null };
+      } catch {
+        // If SSL fails (sandbox/env issue), still return order without payment URL
+        return { order: createdOrder, paymentUrl: null };
+      }
     }
-    */
 
     return { order: createdOrder, paymentUrl: null };
   });
@@ -322,12 +318,51 @@ const getRiderDeliveries = async (
   };
 };
 
+const cancelOrder = async (orderId: string, authUser: IJwtPayload) => {
+  const order = await prisma.order.findUnique({
+    where: { id: orderId },
+    include: { items: true },
+  });
+
+  if (!order) throw new AppError(httpStatus.NOT_FOUND, "Order not found");
+
+  // Only owner or admin can cancel
+  if (order.userId !== authUser.userId && authUser.role !== "ADMIN") {
+    throw new AppError(httpStatus.FORBIDDEN, "You cannot cancel this order");
+  }
+
+  // Only cancellable if PENDING or VERIFYING
+  if (!(["PENDING", "VERIFYING"] as OrderStatus[]).includes(order.status)) {
+    throw new AppError(
+      httpStatus.BAD_REQUEST,
+      `Order in '${order.status}' status cannot be cancelled`
+    );
+  }
+
+  // Restore stock for each item
+  await prisma.$transaction(async (tx) => {
+    for (const item of order.items) {
+      await tx.medicine.update({
+        where: { id: item.medicineId },
+        data: { stock: { increment: item.quantity } },
+      });
+    }
+    await tx.order.update({
+      where: { id: orderId },
+      data: { status: OrderStatus.CANCELLED },
+    });
+  });
+
+  return { message: "Order cancelled successfully" };
+};
+
 export const OrderService = {
   createOrder,
   getOrders,
   getOrderDetails,
   getMyOrders,
   changeOrderStatus,
+  cancelOrder,
   verifyPrescription,
   assignRiderToOrder,
   updateDeliveryStatus,

@@ -47,8 +47,21 @@ const verifyRider = async (id: string) => {
   return rider;
 };
 
+const updateRiderStatus = async (userId: string, status: string) => {
+  const validStatuses = ["AVAILABLE", "BUSY", "OFFLINE"];
+  if (!validStatuses.includes(status)) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Invalid status");
+  }
+  const rider = await prisma.riderProfile.update({
+    where: { userId },
+    data: { currentStatus: status },
+  });
+  return rider;
+};
+
 export const RiderService = {
   getAllRiders,
   getAvailableRiders,
-  verifyRider
+  verifyRider,
+  updateRiderStatus,
 };
