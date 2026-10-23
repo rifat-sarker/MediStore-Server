@@ -1,0 +1,83 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: medistore-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: rifat
+      POSTGRES_PASSWORD: rifat123
+      POSTGRES_DB: medistore
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rifat -d medistore"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: medistore-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  server:
+    image: medistore-server:latest
+    container_name: medistore-server
+    restart: always
+    ports:
+      - "5001:5001"
+    environment:
+      NODE_ENV: production
+      PORT: "5001"
+      DATABASE_URL: "postgresql://rifat:rifat123@postgres:5432/medistore"
+      REDIS_URL: "redis://redis:6379"
+      FRONTEND_URL: "http://localhost:3000"
+      BCRYPT_SALT_ROUNDS: "10"
+      JWT_ACCESS_SECRET: "14a0a4bf7355a2d63b0a3734ed2cd6d726a3f714a1acf51c6587c06fca9c8cb07c3e0e3d71247f03eccc88b1ccd7e458373d43eac867a03f21ef76666c10ad66"
+      JWT_ACCESS_EXPIRES_IN: "2d"
+      JWT_REFRESH_SECRET: "63c7b0071b09fe4ef17d6b894c767e128fba57875f5aa1d6076c71ae313d0e00fc2631386a11241d697a0f878e67e29d187fe5abd0fc2526afbd13b4b01f11ce"
+      JWT_REFRESH_EXPIRES_IN: "5d"
+      CLOUDINARRY_CLOUD_NAME: "dunfiptfi"
+      CLOUDINARRY_API_SECRET: "FFcbn_5DiOUW-YBmz7QeSpmwyLo"
+      CLOUDINARRY_API_KEY: "986548772374891"
+      SMTP_EMAIL: "rifatswd@gmail.com"
+      SMTP_PASS: "dpgb rwck ttun cmeq"
+      SMTP_PORT: "587"
+      SMTP_HOST: "smtp.gmail.com"
+      SSL_STORE_ID: "your_ssl_store_id"
+      SSL_STORE_PASSWD: "your_ssl_store_password"
+      SSL_IS_LIVE: "false"
+      ADMIN_NAME: "Super Admin"
+      ADMIN_EMAIL: "rifatswd@gmail.com"
+      ADMIN_PASSWORD: "@Rifat1234"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  client:
+    image: medistore-client:latest
+    container_name: medistore-client
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_BASE_API: "http://localhost:5001/api/v1"
+    depends_on:
+      - server
+
+volumes:
+  postgres_data:
+  redis_data:
