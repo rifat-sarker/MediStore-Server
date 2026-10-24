@@ -14,9 +14,6 @@ async function main() {
 
     await connectRedis();
 
-    // Seed default admin if none exists
-    await seedAdmin();
-
     server = app.listen(config.port, () => {
       console.log(`🚀 MediStore server running on port ${config.port}`);
     });
@@ -26,7 +23,13 @@ async function main() {
   }
 }
 
-main();
+// Only start local HTTP listener if not running in a serverless environment (e.g. Vercel)
+if (process.env.VERCEL !== "1") {
+  main();
+}
+
+export default app;
+
 
 process.on("SIGINT", async () => {
   console.log("\n🛑 Shutting down gracefully...");
