@@ -55,8 +55,8 @@ services:
       SMTP_PASS: "dpgb rwck ttun cmeq"
       SMTP_PORT: "587"
       SMTP_HOST: "smtp.gmail.com"
-      SSL_STORE_ID: "your_ssl_store_id"
-      SSL_STORE_PASSWD: "your_ssl_store_password"
+      SSL_STORE_ID: "testbox"
+      SSL_STORE_PASSWD: "qwerty"
       SSL_IS_LIVE: "false"
       ADMIN_NAME: "Super Admin"
       ADMIN_EMAIL: "rifatswd@gmail.com"
@@ -75,6 +75,7 @@ services:
       - "3000:3000"
     environment:
       NEXT_PUBLIC_BASE_API: "http://localhost:5001/api/v1"
+      INTERNAL_API_URL: "http://server:5001/api/v1"
     depends_on:
       - server
 
