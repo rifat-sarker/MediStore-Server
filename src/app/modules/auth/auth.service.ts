@@ -295,11 +295,61 @@ const changePassword = async (userId: string, payload: IChangePassword) => {
   return { message: "Password changed successfully." };
 };
 
+// ─── Google OAuth Login / Register ──────────────────────────────────────────
+const googleAuth = async (payload: { name: string; email: string }) => {
+  if (!payload.email) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Email is required for Google Sign-in");
+  }
+
+  let user = await prisma.user.findUnique({
+    where: { email: payload.email },
+  });
+
+  if (!user) {
+    // Generate secure random password for OAuth user
+    const randomPassword = await bcrypt.hash(
+      Math.random().toString(36).slice(-10) + "Aa1!",
+      Number(config.bcrypt_salt_rounds)
+    );
+    user = await prisma.user.create({
+      data: {
+        name: payload.name || payload.email.split("@")[0],
+        email: payload.email,
+        password: randomPassword,
+        role: "CUSTOMER",
+      },
+    });
+  }
+
+  const jwtPayload: IJwtPayload = {
+    userId: user.id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone || "",
+    role: user.role,
+  };
+
+  const accessToken = createToken(
+    jwtPayload,
+    config.jwt_access_secret as string,
+    config.jwt_access_expires_in as string
+  );
+
+  const refreshToken = createToken(
+    jwtPayload,
+    config.jwt_refresh_secret as string,
+    config.jwt_refresh_expires_in as string
+  );
+
+  return { accessToken, refreshToken, user };
+};
+
 export const AuthService = {
   register,
   verifyOtp,
   resendOtp,
   loginUser,
+  googleAuth,
   refreshToken,
   forgotPassword,
   resetPassword,

@@ -58,6 +58,26 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// POST /auth/google
+const googleAuth = catchAsync(async (req: Request, res: Response) => {
+  const result = await AuthService.googleAuth(req.body);
+  const { refreshToken, accessToken, user } = result;
+
+  res.cookie("refreshToken", refreshToken, {
+    secure: config.NODE_ENV === "production",
+    httpOnly: true,
+    sameSite: "none",
+    maxAge: 1000 * 60 * 60 * 24 * 5, // 5 days
+  });
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Google Sign-in successful!",
+    data: { accessToken, refreshToken, user },
+  });
+});
+
 // POST /auth/refresh-token
 const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const { authorization } = req.headers;
@@ -124,6 +144,7 @@ export const AuthController = {
   verifyOtp,
   resendOtp,
   loginUser,
+  googleAuth,
   refreshToken,
   forgotPassword,
   resetPassword,
