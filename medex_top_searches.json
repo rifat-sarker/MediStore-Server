@@ -1,0 +1,1739 @@
+[
+  {
+    "url": "https://medex.com.bd/brands/15053/leukin-50-mg-tablet",
+    "medexId": "15053",
+    "slug": "leukin-50-mg-tablet",
+    "name": "Leukin 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Mercaptopurine",
+    "manufacturer": "Beacon Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/28639/napa-one-1000-mg-tablet",
+    "medexId": "28639",
+    "slug": "napa-one-1000-mg-tablet",
+    "name": "Napa One 1000 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/23402/napa-500-mg-suppository",
+    "medexId": "23402",
+    "slug": "napa-500-mg-suppository",
+    "name": "Napa 500 mg",
+    "dosageForm": "Suppository",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/23405/napa-rapid-500-mg-tablet",
+    "medexId": "23405",
+    "slug": "napa-rapid-500-mg-tablet",
+    "name": "Napa Rapid 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/28439/napa-120-mg-syrup",
+    "medexId": "28439",
+    "slug": "napa-120-mg-syrup",
+    "name": "5 ml",
+    "dosageForm": "Syrup",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10592/napa-extra-500-mg-tablet",
+    "medexId": "10592",
+    "slug": "napa-extra-500-mg-tablet",
+    "name": "Napa Extra 500 mg+65 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol + Caffeine",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10461/napa-10-mg-iv-infusion",
+    "medexId": "10461",
+    "slug": "napa-10-mg-iv-infusion",
+    "name": "ml",
+    "dosageForm": "IV Infusion",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10460/napa-250-mg-suppository",
+    "medexId": "10460",
+    "slug": "napa-250-mg-suppository",
+    "name": "Napa 250 mg",
+    "dosageForm": "Suppository",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10459/napa-125-mg-suppository",
+    "medexId": "10459",
+    "slug": "napa-125-mg-suppository",
+    "name": "Napa 125 mg",
+    "dosageForm": "Suppository",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10457/napa-80-mg-pediatric-drop",
+    "medexId": "10457",
+    "slug": "napa-80-mg-pediatric-drop",
+    "name": "ml",
+    "dosageForm": "Pediatric Drop",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10454/napa-extend-665-mg-xr-tablet",
+    "medexId": "10454",
+    "slug": "napa-extend-665-mg-xr-tablet",
+    "name": "Napa Extend 665 mg",
+    "dosageForm": "XR Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10452/napa-500-mg-tablet",
+    "medexId": "10452",
+    "slug": "napa-500-mg-tablet",
+    "name": "Napa 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10768/napadol-325-mg-tablet",
+    "medexId": "10768",
+    "slug": "napadol-325-mg-tablet",
+    "name": "NapaDol 325 mg+37.5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol + Tramadol Hydrochloride",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/11535/napasin-250-mg-tablet",
+    "medexId": "11535",
+    "slug": "napasin-250-mg-tablet",
+    "name": "Napasin 250 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Naproxen Sodium",
+    "manufacturer": "Skylab Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/37665/napaxin-plus-375-mg-dr-tablet",
+    "medexId": "37665",
+    "slug": "napaxin-plus-375-mg-dr-tablet",
+    "name": "Napaxin Plus 375 mg+20 mg",
+    "dosageForm": "DR Tablet",
+    "genericName": "Naproxen Sodium + Esomeprazole Magnesium",
+    "manufacturer": "Pharmik Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/29376/isabgul-plus-3-gm-eff-powder",
+    "medexId": "29376",
+    "slug": "isabgul-plus-3-gm-eff-powder",
+    "name": "Isabgul Plus",
+    "dosageForm": "3 gm+1 gm",
+    "genericName": "Ispaghula Husk + Sonapata",
+    "manufacturer": "The IBN SINA Natural Medicine Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/35123/bio-eazylax-3-gm-eff-powder",
+    "medexId": "35123",
+    "slug": "bio-eazylax-3-gm-eff-powder",
+    "name": "Bio Eazylax",
+    "dosageForm": "3 gm+1 gm",
+    "genericName": "Ispaghula Husk + Sonapata",
+    "manufacturer": "Bexter Pharmaceuticals"
+  },
+  {
+    "url": "https://medex.com.bd/brands/31649/isabgul-plus-3-gm-eff-powder",
+    "medexId": "31649",
+    "slug": "isabgul-plus-3-gm-eff-powder",
+    "name": "Isabgul Plus",
+    "dosageForm": "3 gm+1 gm",
+    "genericName": "Ispaghula Husk + Sonapata",
+    "manufacturer": "The IBN SINA Natural Medicine Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/33302/aexidal-50-mg-tablet",
+    "medexId": "33302",
+    "slug": "aexidal-50-mg-tablet",
+    "name": "Aexidal 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Mebhydrolin Napadisylate",
+    "manufacturer": "Albion Laboratories Limited"
+  },
+  {
+    "url": "https://medex.com.bd/brands/33467/finapark-50-mg-tablet",
+    "medexId": "33467",
+    "slug": "finapark-50-mg-tablet",
+    "name": "Finapark 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Safinamide Mesylate",
+    "manufacturer": "Incepta Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/33468/finapark-100-mg-tablet",
+    "medexId": "33468",
+    "slug": "finapark-100-mg-tablet",
+    "name": "Finapark 100 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Safinamide Mesylate",
+    "manufacturer": "Incepta Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10383/ace-125-mg-suppository",
+    "medexId": "10383",
+    "slug": "ace-125-mg-suppository",
+    "name": "Ace 125 mg",
+    "dosageForm": "Suppository",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10381/ace-80-mg-pediatric-drop",
+    "medexId": "10381",
+    "slug": "ace-80-mg-pediatric-drop",
+    "name": "ml",
+    "dosageForm": "Pediatric Drop",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10380/ace-120-mg-oral-suspension",
+    "medexId": "10380",
+    "slug": "ace-120-mg-oral-suspension",
+    "name": "5 ml",
+    "dosageForm": "Oral Suspension",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/38985/ace-duo-200-mg-tablet",
+    "medexId": "38985",
+    "slug": "ace-duo-200-mg-tablet",
+    "name": "Ace Duo 200 mg+500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Ibuprofen + Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10384/ace-250-mg-suppository",
+    "medexId": "10384",
+    "slug": "ace-250-mg-suppository",
+    "name": "Ace 250 mg",
+    "dosageForm": "Suppository",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10378/ace-xr-665-mg-xr-tablet",
+    "medexId": "10378",
+    "slug": "ace-xr-665-mg-xr-tablet",
+    "name": "Ace XR 665 mg",
+    "dosageForm": "XR Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10377/ace-500-mg-tablet",
+    "medexId": "10377",
+    "slug": "ace-500-mg-tablet",
+    "name": "Ace 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/29606/ace-120-mg-syrup",
+    "medexId": "29606",
+    "slug": "ace-120-mg-syrup",
+    "name": "5 ml",
+    "dosageForm": "Syrup",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10385/ace-500-mg-suppository",
+    "medexId": "10385",
+    "slug": "ace-500-mg-suppository",
+    "name": "Ace 500 mg",
+    "dosageForm": "Suppository",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10557/ace-plus-500-mg-tablet",
+    "medexId": "10557",
+    "slug": "ace-plus-500-mg-tablet",
+    "name": "Ace Plus 500 mg+65 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol + Caffeine",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/33987/ace-10-mg-iv-infusion",
+    "medexId": "33987",
+    "slug": "ace-10-mg-iv-infusion",
+    "name": "ml",
+    "dosageForm": "IV Infusion",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/28573/ace-power-1000-mg-tablet",
+    "medexId": "28573",
+    "slug": "ace-power-1000-mg-tablet",
+    "name": "Ace Power 1000 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/35665/aceclofenac-100-mg-tablet",
+    "medexId": "35665",
+    "slug": "aceclofenac-100-mg-tablet",
+    "name": "Aceclofenac 100 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Aceclofenac",
+    "manufacturer": "Pristine Pharmaceuticals Ltd"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10559/aceta-x-500-mg-tablet",
+    "medexId": "10559",
+    "slug": "aceta-x-500-mg-tablet",
+    "name": "Aceta-X 500 mg+65 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol + Caffeine",
+    "manufacturer": "Biopharma Limited"
+  },
+  {
+    "url": "https://medex.com.bd/brands/10558/acep-extra-500-mg-tablet",
+    "medexId": "10558",
+    "slug": "acep-extra-500-mg-tablet",
+    "name": "Acep Extra 500 mg+65 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol + Caffeine",
+    "manufacturer": "Zenith Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/35574/acedone-z-175-mg-oral-suspension",
+    "medexId": "35574",
+    "slug": "acedone-z-175-mg-oral-suspension",
+    "name": "Acedone-Z",
+    "dosageForm": "175 mg+225 mg",
+    "genericName": "Aluminium Hydroxide + Magnesium Hydroxide",
+    "manufacturer": "Zenith Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/38718/aceron-100-mg-tablet",
+    "medexId": "38718",
+    "slug": "aceron-100-mg-tablet",
+    "name": "Aceron 100 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Aceclofenac",
+    "manufacturer": "Nipa Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/10391/aceta-pd-80-mg-pediatric-drop",
+    "medexId": "10391",
+    "slug": "aceta-pd-80-mg-pediatric-drop",
+    "name": "ml",
+    "dosageForm": "Pediatric Drop",
+    "genericName": "Paracetamol",
+    "manufacturer": "Biopharma Limited"
+  },
+  {
+    "url": "https://medex.com.bd/brands/31963/aceta-one-1000-mg-tablet",
+    "medexId": "31963",
+    "slug": "aceta-one-1000-mg-tablet",
+    "name": "Aceta One 1000 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Paracetamol",
+    "manufacturer": "Biopharma Limited"
+  },
+  {
+    "url": "https://medex.com.bd/brands/31935/aces-plus-tablet",
+    "medexId": "31935",
+    "slug": "aces-plus-tablet",
+    "name": "Aces Plus",
+    "dosageForm": "Tablet",
+    "genericName": "Super antioxidant [vitamins & minerals]",
+    "manufacturer": "Ambee Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/1958/seclo-20-mg-ec-capsule",
+    "medexId": "1958",
+    "slug": "seclo-20-mg-ec-capsule",
+    "name": "Seclo 20 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Omeprazole",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/1959/seclo-40-mg-ec-capsule",
+    "medexId": "1959",
+    "slug": "seclo-40-mg-ec-capsule",
+    "name": "Seclo 40 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Omeprazole",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/1961/seclo-40-mg-injection",
+    "medexId": "1961",
+    "slug": "seclo-40-mg-injection",
+    "name": "vial",
+    "dosageForm": "Injection",
+    "genericName": "Omeprazole",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/23101/seclo-mups-20-mg-mups-table",
+    "medexId": "23101",
+    "slug": "seclo-mups-20-mg-mups-table",
+    "name": "Seclo MUPS 20 mg",
+    "dosageForm": "MUPS Table",
+    "genericName": "Omeprazole",
+    "manufacturer": "Biogen Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/35676/seclotil-20-mg-ec-capsule",
+    "medexId": "35676",
+    "slug": "seclotil-20-mg-ec-capsule",
+    "name": "Seclotil 20 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Omeprazole",
+    "manufacturer": "Pristine Pharmaceuticals Ltd"
+  },
+  {
+    "url": "https://medex.com.bd/brands/35677/seclotil-40-mg-ec-capsule",
+    "medexId": "35677",
+    "slug": "seclotil-40-mg-ec-capsule",
+    "name": "Seclotil 40 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Omeprazole",
+    "manufacturer": "Pristine Pharmaceuticals Ltd"
+  },
+  {
+    "url": "https://medex.com.bd/brands/35888/seclogen-40-mg-ec-capsule",
+    "medexId": "35888",
+    "slug": "seclogen-40-mg-ec-capsule",
+    "name": "Seclogen 40 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Omeprazole",
+    "manufacturer": "Biogen Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/2103/sergel-20-mg-ec-capsule",
+    "medexId": "2103",
+    "slug": "sergel-20-mg-ec-capsule",
+    "name": "Sergel 20 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/2104/sergel-40-mg-ec-capsule",
+    "medexId": "2104",
+    "slug": "sergel-40-mg-ec-capsule",
+    "name": "Sergel 40 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/2107/sergel-40-mg-injection",
+    "medexId": "2107",
+    "slug": "sergel-40-mg-injection",
+    "name": "vial",
+    "dosageForm": "Injection",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/26120/sergel-20-mg-ec-tablet",
+    "medexId": "26120",
+    "slug": "sergel-20-mg-ec-tablet",
+    "name": "Sergel 20 mg",
+    "dosageForm": "EC Tablet",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/26857/sergel-40-mg-ec-tablet",
+    "medexId": "26857",
+    "slug": "sergel-40-mg-ec-tablet",
+    "name": "Sergel 40 mg",
+    "dosageForm": "EC Tablet",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/29226/sergel-20-mg-oral-powder",
+    "medexId": "29226",
+    "slug": "sergel-20-mg-oral-powder",
+    "name": "Sergel 20 mg",
+    "dosageForm": "Oral Powder",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/3800/monas-4-mg-chewable-tablet",
+    "medexId": "3800",
+    "slug": "monas-4-mg-chewable-tablet",
+    "name": "Monas 4 mg",
+    "dosageForm": "Chewable Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "ACME Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/3801/monas-5-mg-chewable-tablet",
+    "medexId": "3801",
+    "slug": "monas-5-mg-chewable-tablet",
+    "name": "Monas 5 mg",
+    "dosageForm": "Chewable Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "ACME Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/3802/monas-10-mg-tablet",
+    "medexId": "3802",
+    "slug": "monas-10-mg-tablet",
+    "name": "Monas 10 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "ACME Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/26522/monas-oft-4-mg-flash-tablet",
+    "medexId": "26522",
+    "slug": "monas-oft-4-mg-flash-tablet",
+    "name": "Monas OFT 4 mg",
+    "dosageForm": "Flash Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "ACME Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/26523/monas-oft-5-mg-flash-tablet",
+    "medexId": "26523",
+    "slug": "monas-oft-5-mg-flash-tablet",
+    "name": "Monas OFT 5 mg",
+    "dosageForm": "Flash Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "ACME Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/37805/monasic-10-mg-tablet",
+    "medexId": "37805",
+    "slug": "monasic-10-mg-tablet",
+    "name": "Monasic 10 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "Physic pharmaceuticals ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/37806/monasic-4-mg-chewable-tablet",
+    "medexId": "37806",
+    "slug": "monasic-4-mg-chewable-tablet",
+    "name": "Monasic 4 mg",
+    "dosageForm": "Chewable Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "Physic pharmaceuticals ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/37807/monasic-5-mg-chewable-tablet",
+    "medexId": "37807",
+    "slug": "monasic-5-mg-chewable-tablet",
+    "name": "Monasic 5 mg",
+    "dosageForm": "Chewable Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "Physic pharmaceuticals ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/30323/biomonas-10-mg-tablet",
+    "medexId": "30323",
+    "slug": "biomonas-10-mg-tablet",
+    "name": "BioMonas 10 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Montelukast Sodium",
+    "manufacturer": "Biogen Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/2199/pantonix-20-mg-ec-tablet",
+    "medexId": "2199",
+    "slug": "pantonix-20-mg-ec-tablet",
+    "name": "Pantonix 20 mg",
+    "dosageForm": "EC Tablet",
+    "genericName": "Pantoprazole Sodium",
+    "manufacturer": "Incepta Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/2200/pantonix-40-mg-ec-tablet",
+    "medexId": "2200",
+    "slug": "pantonix-40-mg-ec-tablet",
+    "name": "Pantonix 40 mg",
+    "dosageForm": "EC Tablet",
+    "genericName": "Pantoprazole Sodium",
+    "manufacturer": "Incepta Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/2201/pantonix-40-mg-injection",
+    "medexId": "2201",
+    "slug": "pantonix-40-mg-injection",
+    "name": "vial",
+    "dosageForm": "Injection",
+    "genericName": "Pantoprazole Sodium",
+    "manufacturer": "Incepta Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/11914/alatrol-10-mg-tablet",
+    "medexId": "11914",
+    "slug": "alatrol-10-mg-tablet",
+    "name": "Alatrol 10 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Cetirizine Hydrochloride",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/11915/alatrol-5-mg-syrup",
+    "medexId": "11915",
+    "slug": "alatrol-5-mg-syrup",
+    "name": "5 ml",
+    "dosageForm": "Syrup",
+    "genericName": "Cetirizine Hydrochloride",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/19173/alatrol-25-mg-pediatric-drop",
+    "medexId": "19173",
+    "slug": "alatrol-25-mg-pediatric-drop",
+    "name": "ml",
+    "dosageForm": "Pediatric Drop",
+    "genericName": "Cetirizine Hydrochloride",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12094/fexo-60-mg-tablet",
+    "medexId": "12094",
+    "slug": "fexo-60-mg-tablet",
+    "name": "Fexo 60 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12095/fexo-120-mg-tablet",
+    "medexId": "12095",
+    "slug": "fexo-120-mg-tablet",
+    "name": "Fexo 120 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12096/fexo-180-mg-tablet",
+    "medexId": "12096",
+    "slug": "fexo-180-mg-tablet",
+    "name": "Fexo 180 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12097/fexo-30-mg-oral-suspension",
+    "medexId": "12097",
+    "slug": "fexo-30-mg-oral-suspension",
+    "name": "5 ml",
+    "dosageForm": "Oral Suspension",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12113/fexon-180-mg-tablet",
+    "medexId": "12113",
+    "slug": "fexon-180-mg-tablet",
+    "name": "Fexon 180 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Astra Biopharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12098/fexocon-120-mg-tablet",
+    "medexId": "12098",
+    "slug": "fexocon-120-mg-tablet",
+    "name": "Fexocon 120 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Concord Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12099/fexocon-180-mg-tablet",
+    "medexId": "12099",
+    "slug": "fexocon-180-mg-tablet",
+    "name": "Fexocon 180 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Concord Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12100/fexocon-30-mg-oral-suspension",
+    "medexId": "12100",
+    "slug": "fexocon-30-mg-oral-suspension",
+    "name": "5 ml",
+    "dosageForm": "Oral Suspension",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Concord Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12102/fexodin-30-mg-oral-suspension",
+    "medexId": "12102",
+    "slug": "fexodin-30-mg-oral-suspension",
+    "name": "5 ml",
+    "dosageForm": "Oral Suspension",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Pacific Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12103/fexofast-120-mg-tablet",
+    "medexId": "12103",
+    "slug": "fexofast-120-mg-tablet",
+    "name": "Fexofast 120 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Drug International Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12104/fexofast-180-mg-tablet",
+    "medexId": "12104",
+    "slug": "fexofast-180-mg-tablet",
+    "name": "Fexofast 180 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Drug International Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12105/fexofast-30-mg-oral-suspension",
+    "medexId": "12105",
+    "slug": "fexofast-30-mg-oral-suspension",
+    "name": "5 ml",
+    "dosageForm": "Oral Suspension",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Drug International Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12106/fexofen-120-mg-tablet",
+    "medexId": "12106",
+    "slug": "fexofen-120-mg-tablet",
+    "name": "Fexofen 120 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Somatec Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12107/fexofen-180-mg-tablet",
+    "medexId": "12107",
+    "slug": "fexofen-180-mg-tablet",
+    "name": "Fexofen 180 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Somatec Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12108/fexofen-30-mg-oral-suspension",
+    "medexId": "12108",
+    "slug": "fexofen-30-mg-oral-suspension",
+    "name": "5 ml",
+    "dosageForm": "Oral Suspension",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Somatec Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/12109/fexomin-60-mg-tablet",
+    "medexId": "12109",
+    "slug": "fexomin-60-mg-tablet",
+    "name": "Fexomin 60 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "The IBN SINA Pharmaceutical PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12110/fexomin-120-mg-tablet",
+    "medexId": "12110",
+    "slug": "fexomin-120-mg-tablet",
+    "name": "Fexomin 120 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "The IBN SINA Pharmaceutical PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12111/fexomin-30-mg-oral-suspension",
+    "medexId": "12111",
+    "slug": "fexomin-30-mg-oral-suspension",
+    "name": "5 ml",
+    "dosageForm": "Oral Suspension",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "The IBN SINA Pharmaceutical PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/12112/fexon-120-mg-tablet",
+    "medexId": "12112",
+    "slug": "fexon-120-mg-tablet",
+    "name": "Fexon 120 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "Astra Biopharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32079/fexorush-180-mg-tablet",
+    "medexId": "32079",
+    "slug": "fexorush-180-mg-tablet",
+    "name": "Fexorush 180 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Fexofenadine Hydrochloride",
+    "manufacturer": "DBL Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/3077/bizoran-5-mg-tablet",
+    "medexId": "3077",
+    "slug": "bizoran-5-mg-tablet",
+    "name": "Bizoran 5 mg+20 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Amlodipine Besilate + Olmesartan Medoxomil",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/17759/bizoran-5-mg-tablet",
+    "medexId": "17759",
+    "slug": "bizoran-5-mg-tablet",
+    "name": "Bizoran 5 mg+40 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Amlodipine Besilate + Olmesartan Medoxomil",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/31027/bizoran-10-mg-tablet",
+    "medexId": "31027",
+    "slug": "bizoran-10-mg-tablet",
+    "name": "Bizoran 10 mg+20 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Amlodipine Besilate + Olmesartan Medoxomil",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/31028/bizoran-10-mg-tablet",
+    "medexId": "31028",
+    "slug": "bizoran-10-mg-tablet",
+    "name": "Bizoran 10 mg+40 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Amlodipine Besilate + Olmesartan Medoxomil",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/9118/ciprocin-03-eye-drop",
+    "medexId": "9118",
+    "slug": "ciprocin-03-eye-drop",
+    "name": "",
+    "dosageForm": "Eye Drop",
+    "genericName": "Ciprofloxacin",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/9192/ciprocin-500-mg-tablet",
+    "medexId": "9192",
+    "slug": "ciprocin-500-mg-tablet",
+    "name": "Ciprocin 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Ciprofloxacin",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/9193/ciprocin-750-mg-tablet",
+    "medexId": "9193",
+    "slug": "ciprocin-750-mg-tablet",
+    "name": "Ciprocin 750 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Ciprofloxacin",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/9195/ciprocin-250-mg-powder-for-suspension",
+    "medexId": "9195",
+    "slug": "ciprocin-250-mg-powder-for-suspension",
+    "name": "5 ml",
+    "dosageForm": "Powder for Suspension",
+    "genericName": "Ciprofloxacin",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/26178/ciprocin-200-mg-iv-infusion",
+    "medexId": "26178",
+    "slug": "ciprocin-200-mg-iv-infusion",
+    "name": "100 ml",
+    "dosageForm": "IV Infusion",
+    "genericName": "Ciprofloxacin",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14275/calbo-jr-250-mg-chewable-tablet",
+    "medexId": "14275",
+    "slug": "calbo-jr-250-mg-chewable-tablet",
+    "name": "Calbo Jr 250 mg",
+    "dosageForm": "Chewable Tablet",
+    "genericName": "Calcium Carbonate",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14350/calbo-500-mg-tablet",
+    "medexId": "14350",
+    "slug": "calbo-500-mg-tablet",
+    "name": "Calbo 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Calcium Carbonate",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14501/calbo-forte-1000-mg-eff-tablet",
+    "medexId": "14501",
+    "slug": "calbo-forte-1000-mg-eff-tablet",
+    "name": "Calbo Forte 1000 mg+327 mg",
+    "dosageForm": "Conventional calcium",
+    "genericName": "Calcium Lactate Gluconate + Calcium Carbonate + Vitamin C + Vitamin D3",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14351/calboral-d-500-mg-tablet",
+    "medexId": "14351",
+    "slug": "calboral-d-500-mg-tablet",
+    "name": "Calboral-D 500 mg+200 IU",
+    "dosageForm": "Tablet",
+    "genericName": "Coral Calcium + Vitamin D3",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14370/calbostar-400-mg-tablet",
+    "medexId": "14370",
+    "slug": "calbostar-400-mg-tablet",
+    "name": "Calbostar 400 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Calcium Orotate",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14371/calbostar-740-mg-tablet",
+    "medexId": "14371",
+    "slug": "calbostar-740-mg-tablet",
+    "name": "Calbostar 740 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Calcium Orotate",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14391/calbo-c-1000-mg-eff-tablet",
+    "medexId": "14391",
+    "slug": "calbo-c-1000-mg-eff-tablet",
+    "name": "Calbo-C 1000 mg+327 mg",
+    "dosageForm": "Conventional calcium",
+    "genericName": "Calcium Lactate Gluconate + Calcium Carbonate + Vitamin C",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14411/calbo-d-500-mg-tablet",
+    "medexId": "14411",
+    "slug": "calbo-d-500-mg-tablet",
+    "name": "Calbo-D 500 mg+200 IU",
+    "dosageForm": "Tablet",
+    "genericName": "Conventional Calcium + Vitamin D3",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14412/calbon-d-500-mg-tablet",
+    "medexId": "14412",
+    "slug": "calbon-d-500-mg-tablet",
+    "name": "Calbon D 500 mg+200 IU",
+    "dosageForm": "Tablet",
+    "genericName": "Conventional Calcium + Vitamin D3",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14517/calboplex-tablet",
+    "medexId": "14517",
+    "slug": "calboplex-tablet",
+    "name": "Calboplex",
+    "dosageForm": "Tablet",
+    "genericName": "Calcium + Vitamin D3 + Multimineral",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/16345/calbo-d-vita-1358196-mg-eff-tablet",
+    "medexId": "16345",
+    "slug": "calbo-d-vita-1358196-mg-eff-tablet",
+    "name": "Calbo-D Vita 1358.196 mg+600 mg",
+    "dosageForm": "Elemental calcium",
+    "genericName": "Calcium Lactate Gluconate + Calcium Carbonate + Vitamin D3",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/26172/calboral-dx-600-mg-tablet",
+    "medexId": "26172",
+    "slug": "calboral-dx-600-mg-tablet",
+    "name": "Calboral-DX 600 mg+400 IU",
+    "dosageForm": "Tablet",
+    "genericName": "Coral Calcium + Vitamin D3",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/30694/calbotol-1200-mg-tablet",
+    "medexId": "30694",
+    "slug": "calbotol-1200-mg-tablet",
+    "name": "Calbotol 1200 mg+0.25 mcg",
+    "dosageForm": "Tablet",
+    "genericName": "Calcium Citrate + Calcitriol",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/29611/g-calbo-500-mg-tablet",
+    "medexId": "29611",
+    "slug": "g-calbo-500-mg-tablet",
+    "name": "G-Calbo 500 mg+200 IU",
+    "dosageForm": "Tablet",
+    "genericName": "Algae Calcium + Vitamin D3",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/34451/g-calbo-dx-600-mg-tablet",
+    "medexId": "34451",
+    "slug": "g-calbo-dx-600-mg-tablet",
+    "name": "G-Calbo DX 600 mg+400 IU",
+    "dosageForm": "Tablet",
+    "genericName": "Algae Calcium + Vitamin D3",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/13538/bextram-kids-syrup",
+    "medexId": "13538",
+    "slug": "bextram-kids-syrup",
+    "name": "Bextram Kids",
+    "dosageForm": "Syrup",
+    "genericName": "Multivitamin + Cod Liver Oil",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14090/bextram-gold-tablet",
+    "medexId": "14090",
+    "slug": "bextram-gold-tablet",
+    "name": "Bextram Gold",
+    "dosageForm": "Tablet",
+    "genericName": "Multivitamin & Multimineral [A-Z gold preparation]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14140/bextram-silver-tablet",
+    "medexId": "14140",
+    "slug": "bextram-silver-tablet",
+    "name": "Bextram Silver",
+    "dosageForm": "Tablet",
+    "genericName": "Multivitamin & Multimineral [A-Z silver preparation]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14182/bextram-teen-hm-tablet",
+    "medexId": "14182",
+    "slug": "bextram-teen-hm-tablet",
+    "name": "Bextram Teen hm",
+    "dosageForm": "Tablet",
+    "genericName": "Multivitamin & Multimineral [A-Z teen boys preparation]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14184/bextram-teen-hr-tablet",
+    "medexId": "14184",
+    "slug": "bextram-teen-hr-tablet",
+    "name": "Bextram Teen hr",
+    "dosageForm": "Tablet",
+    "genericName": "Multivitamin & Multimineral [A-Z teen girls preparation]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/19312/d-rise-40000-iu-capsule",
+    "medexId": "19312",
+    "slug": "d-rise-40000-iu-capsule",
+    "name": "D-Rise 40000 IU",
+    "dosageForm": "Capsule",
+    "genericName": "Cholecalciferol [Vitamin D3]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/19313/d-rise-20000-iu-capsule",
+    "medexId": "19313",
+    "slug": "d-rise-20000-iu-capsule",
+    "name": "D-Rise 20000 IU",
+    "dosageForm": "Capsule",
+    "genericName": "Cholecalciferol [Vitamin D3]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/19314/d-rise-2000-iu-tablet",
+    "medexId": "19314",
+    "slug": "d-rise-2000-iu-tablet",
+    "name": "D-Rise 2000 IU",
+    "dosageForm": "Tablet",
+    "genericName": "Cholecalciferol [Vitamin D3]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/30302/d-rise-200000-iu-injectable-solution",
+    "medexId": "30302",
+    "slug": "d-rise-200000-iu-injectable-solution",
+    "name": "ml",
+    "dosageForm": "Injectable Solution",
+    "genericName": "Cholecalciferol [Vitamin D3]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/34356/d-rise-2000-iu-oral-solution",
+    "medexId": "34356",
+    "slug": "d-rise-2000-iu-oral-solution",
+    "name": "ml",
+    "dosageForm": "Oral Solution",
+    "genericName": "Cholecalciferol [Vitamin D3]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/34362/d-rise-1000-iu-chewable-tablet",
+    "medexId": "34362",
+    "slug": "d-rise-1000-iu-chewable-tablet",
+    "name": "D-Rise 1000 IU",
+    "dosageForm": "Chewable Tablet",
+    "genericName": "Cholecalciferol [Vitamin D3]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/36102/d-rise-50000-iu-capsule",
+    "medexId": "36102",
+    "slug": "d-rise-50000-iu-capsule",
+    "name": "D-Rise 50000 IU",
+    "dosageForm": "Capsule",
+    "genericName": "Cholecalciferol [Vitamin D3]",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14936/risedon-150-mg-tablet",
+    "medexId": "14936",
+    "slug": "risedon-150-mg-tablet",
+    "name": "Risedon 150 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Risedronate Sodium",
+    "manufacturer": "Square Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/14938/salost-dr-35-dr-tablet",
+    "medexId": "14938",
+    "slug": "salost-dr-35-dr-tablet",
+    "name": "Salost DR 35  mg",
+    "dosageForm": "DR Tablet",
+    "genericName": "Risedronate Sodium",
+    "manufacturer": "UniMed UniHealth Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14940/sedron-5-mg-tablet",
+    "medexId": "14940",
+    "slug": "sedron-5-mg-tablet",
+    "name": "Sedron 5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Risedronate Sodium",
+    "manufacturer": "General Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/14941/sedron-35-tablet",
+    "medexId": "14941",
+    "slug": "sedron-35-tablet",
+    "name": "Sedron 35  mg",
+    "dosageForm": "Tablet",
+    "genericName": "Risedronate Sodium",
+    "manufacturer": "General Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/2076/maxpro-20-mg-ec-tablet",
+    "medexId": "2076",
+    "slug": "maxpro-20-mg-ec-tablet",
+    "name": "Maxpro 20 mg",
+    "dosageForm": "EC Tablet",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Renata PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/2077/maxpro-40-mg-ec-tablet",
+    "medexId": "2077",
+    "slug": "maxpro-40-mg-ec-tablet",
+    "name": "Maxpro 40 mg",
+    "dosageForm": "EC Tablet",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Renata PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/2078/maxpro-20-mg-ec-capsule",
+    "medexId": "2078",
+    "slug": "maxpro-20-mg-ec-capsule",
+    "name": "Maxpro 20 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Renata PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/2079/maxpro-40-mg-ec-capsule",
+    "medexId": "2079",
+    "slug": "maxpro-40-mg-ec-capsule",
+    "name": "Maxpro 40 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Renata PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/2080/maxpro-40-mg-injection",
+    "medexId": "2080",
+    "slug": "maxpro-40-mg-injection",
+    "name": "vial",
+    "dosageForm": "Injection",
+    "genericName": "Esomeprazole",
+    "manufacturer": "Renata PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/26639/maxpro-hp-20-mg-tablet",
+    "medexId": "26639",
+    "slug": "maxpro-hp-20-mg-tablet",
+    "name": "Maxpro Hp 20 mg+1000 mg+500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Esomeprazole + Amoxicillin + Clarithromycin",
+    "manufacturer": "Renata PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/4727/emistat-ft-4-mg-flash-tablet",
+    "medexId": "4727",
+    "slug": "emistat-ft-4-mg-flash-tablet",
+    "name": "Emistat FT 4 mg",
+    "dosageForm": "Flash Tablet",
+    "genericName": "Ondansetron",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/4728/emistat-8-mg-tablet",
+    "medexId": "4728",
+    "slug": "emistat-8-mg-tablet",
+    "name": "Emistat 8 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Ondansetron",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/4729/emistat-8-mg-imiv-injection",
+    "medexId": "4729",
+    "slug": "emistat-8-mg-imiv-injection",
+    "name": "4 ml",
+    "dosageForm": "IM/IV Injection",
+    "genericName": "Ondansetron",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/4730/emistat-4-mg-oral-solution",
+    "medexId": "4730",
+    "slug": "emistat-4-mg-oral-solution",
+    "name": "5 ml",
+    "dosageForm": "Oral Solution",
+    "genericName": "Ondansetron",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/36017/emistat-ft-8-mg-flash-tablet",
+    "medexId": "36017",
+    "slug": "emistat-ft-8-mg-flash-tablet",
+    "name": "Emistat FT 8 mg",
+    "dosageForm": "Flash Tablet",
+    "genericName": "Ondansetron",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/1955/roceptin-20-mg-ec-capsule",
+    "medexId": "1955",
+    "slug": "roceptin-20-mg-ec-capsule",
+    "name": "Roceptin 20 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Omeprazole",
+    "manufacturer": "Desh Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/34785/roceptin-40-mg-ec-capsule",
+    "medexId": "34785",
+    "slug": "roceptin-40-mg-ec-capsule",
+    "name": "Roceptin 40 mg",
+    "dosageForm": "EC Capsule",
+    "genericName": "Omeprazole",
+    "manufacturer": "Desh Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21838/preslow-25-mg-tablet",
+    "medexId": "21838",
+    "slug": "preslow-25-mg-tablet",
+    "name": "Preslow 25 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Labaid Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/17223/losarva-50-mg-tablet",
+    "medexId": "17223",
+    "slug": "losarva-50-mg-tablet",
+    "name": "Losarva 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "NIPRO JMI Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/17225/losarva-plus-50-mg-tablet",
+    "medexId": "17225",
+    "slug": "losarva-plus-50-mg-tablet",
+    "name": "Losarva Plus 50 mg+12.5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium + Hydrochlorothiazide",
+    "manufacturer": "NIPRO JMI Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21823/loril-50-mg-tablet",
+    "medexId": "21823",
+    "slug": "loril-50-mg-tablet",
+    "name": "Loril 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Astra Biopharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21824/loril-100-mg-tablet",
+    "medexId": "21824",
+    "slug": "loril-100-mg-tablet",
+    "name": "Loril 100 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Astra Biopharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21826/losapress-25-mg-tablet",
+    "medexId": "21826",
+    "slug": "losapress-25-mg-tablet",
+    "name": "Losapress 25 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Benham Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21827/losapress-50-mg-tablet",
+    "medexId": "21827",
+    "slug": "losapress-50-mg-tablet",
+    "name": "Losapress 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Benham Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21829/angitan-50-mg-tablet",
+    "medexId": "21829",
+    "slug": "angitan-50-mg-tablet",
+    "name": "Angitan 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Chemist Laboratories  Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21833/e-tan-50-mg-tablet",
+    "medexId": "21833",
+    "slug": "e-tan-50-mg-tablet",
+    "name": "E-Tan 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Edruc Limited"
+  },
+  {
+    "url": "https://medex.com.bd/brands/21861/sb-losak-25-mg-tablet",
+    "medexId": "21861",
+    "slug": "sb-losak-25-mg-tablet",
+    "name": "SB-Losak 25 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Sunman-Birdem Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21878/angitan-plus-50-mg-tablet",
+    "medexId": "21878",
+    "slug": "angitan-plus-50-mg-tablet",
+    "name": "Angitan Plus 50 mg+12.5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium + Hydrochlorothiazide",
+    "manufacturer": "Chemist Laboratories  Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21877/losarpex-plus-50-mg-tablet",
+    "medexId": "21877",
+    "slug": "losarpex-plus-50-mg-tablet",
+    "name": "Losarpex Plus 50 mg+12.5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium + Hydrochlorothiazide",
+    "manufacturer": "Apex Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21870/losamax-50-mg-tablet",
+    "medexId": "21870",
+    "slug": "losamax-50-mg-tablet",
+    "name": "Losamax 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Veritas Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21862/sb-losak-50-mg-tablet",
+    "medexId": "21862",
+    "slug": "sb-losak-50-mg-tablet",
+    "name": "SB-Losak 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Sunman-Birdem Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21844/pertilos-50-mg-tablet",
+    "medexId": "21844",
+    "slug": "pertilos-50-mg-tablet",
+    "name": "Pertilos 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Navana Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21839/preslow-50-mg-tablet",
+    "medexId": "21839",
+    "slug": "preslow-50-mg-tablet",
+    "name": "Preslow 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Labaid Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/21840/renosart-50-mg-tablet",
+    "medexId": "21840",
+    "slug": "renosart-50-mg-tablet",
+    "name": "Renosart 50 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "Leon Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/17222/losarva-25-mg-tablet",
+    "medexId": "17222",
+    "slug": "losarva-25-mg-tablet",
+    "name": "Losarva 25 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Losartan Potassium",
+    "manufacturer": "NIPRO JMI Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/27435/azithromycin-200-mg-powder-for-suspension",
+    "medexId": "27435",
+    "slug": "azithromycin-200-mg-powder-for-suspension",
+    "name": "5 ml",
+    "dosageForm": "Powder for Suspension",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Premier Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/37632/azithromycin-500-mg-tablet",
+    "medexId": "37632",
+    "slug": "azithromycin-500-mg-tablet",
+    "name": "Azithromycin 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Pharmik Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/37631/azithromycin-250-mg-tablet",
+    "medexId": "37631",
+    "slug": "azithromycin-250-mg-tablet",
+    "name": "Azithromycin 250 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Pharmik Laboratories Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25596/azithrocin-250-mg-tablet",
+    "medexId": "25596",
+    "slug": "azithrocin-250-mg-tablet",
+    "name": "Azithrocin 250 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Beximco Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25599/arizith-500-mg-tablet",
+    "medexId": "25599",
+    "slug": "arizith-500-mg-tablet",
+    "name": "Arizith 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Centeon Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25593/azirex-500-mg-tablet",
+    "medexId": "25593",
+    "slug": "azirex-500-mg-tablet",
+    "name": "Azirex 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Belsen Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25592/tabrex-500-mg-tablet",
+    "medexId": "25592",
+    "slug": "tabrex-500-mg-tablet",
+    "name": "Tabrex 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Aztec Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25589/az-500-mg-tablet",
+    "medexId": "25589",
+    "slug": "az-500-mg-tablet",
+    "name": "AZ 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25588/az-250-mg-tablet",
+    "medexId": "25588",
+    "slug": "az-250-mg-tablet",
+    "name": "AZ 250 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25587/apozyth-200-mg-powder-for-suspension",
+    "medexId": "25587",
+    "slug": "apozyth-200-mg-powder-for-suspension",
+    "name": "5 ml",
+    "dosageForm": "Powder for Suspension",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Apollo Pharmaceutical Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/25585/zylomax-500-mg-tablet",
+    "medexId": "25585",
+    "slug": "zylomax-500-mg-tablet",
+    "name": "Zylomax 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Alkad Laboratories"
+  },
+  {
+    "url": "https://medex.com.bd/brands/15691/romycin-1-eye-drop",
+    "medexId": "15691",
+    "slug": "romycin-1-eye-drop",
+    "name": "",
+    "dosageForm": "Eye Drop",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Nuvista Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/8749/zycin-500-mg-tablet",
+    "medexId": "8749",
+    "slug": "zycin-500-mg-tablet",
+    "name": "Zycin 500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Globe Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/8750/zycin-200-mg-powder-for-suspension",
+    "medexId": "8750",
+    "slug": "zycin-200-mg-powder-for-suspension",
+    "name": "5 ml",
+    "dosageForm": "Powder for Suspension",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Globe Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/15694/zita-1-eye-drop",
+    "medexId": "15694",
+    "slug": "zita-1-eye-drop",
+    "name": "",
+    "dosageForm": "Eye Drop",
+    "genericName": "Azithromycin Dihydrate",
+    "manufacturer": "Advanced Chemical Industries PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/5480/linaglip-5-mg-tablet",
+    "medexId": "5480",
+    "slug": "linaglip-5-mg-tablet",
+    "name": "Linaglip 5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Linagliptin",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/17200/linaglip-m-25-mg-tablet",
+    "medexId": "17200",
+    "slug": "linaglip-m-25-mg-tablet",
+    "name": "Linaglip-M 2.5 mg+500 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Linagliptin + Metformin Hydrochloride",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/17201/linaglip-m-25-mg-tablet",
+    "medexId": "17201",
+    "slug": "linaglip-m-25-mg-tablet",
+    "name": "Linaglip-M 2.5 mg+850 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Linagliptin + Metformin Hydrochloride",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/26426/linaglip-m-er-5-mg-xr-tablet",
+    "medexId": "26426",
+    "slug": "linaglip-m-er-5-mg-xr-tablet",
+    "name": "Linaglip-M ER 5 mg+1000 mg",
+    "dosageForm": "XR Tablet",
+    "genericName": "Linagliptin + Metformin Hydrochloride",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/38538/linaglip-m-25-mg-tablet",
+    "medexId": "38538",
+    "slug": "linaglip-m-25-mg-tablet",
+    "name": "Linaglip-M 2.5 mg+1000 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Linagliptin + Metformin Hydrochloride",
+    "manufacturer": "Aristopharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32743/emazid-l-25-mg-tablet",
+    "medexId": "32743",
+    "slug": "emazid-l-25-mg-tablet",
+    "name": "Emazid L 25 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Eskayef Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/33943/evaglip-10-mg-tablet",
+    "medexId": "33943",
+    "slug": "evaglip-10-mg-tablet",
+    "name": "Evaglip 10 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Healthcare Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/30964/linera-5-mg-tablet",
+    "medexId": "30964",
+    "slug": "linera-5-mg-tablet",
+    "name": "Linera 5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Linagliptin",
+    "manufacturer": "Ziska Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32614/emjenta-25-mg-tablet",
+    "medexId": "32614",
+    "slug": "emjenta-25-mg-tablet",
+    "name": "Emjenta 25 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "NIPRO JMI Pharma Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32628/linax-plus-5-mg-xr-tablet",
+    "medexId": "32628",
+    "slug": "linax-plus-5-mg-xr-tablet",
+    "name": "Linax Plus 5 mg+1000 mg",
+    "dosageForm": "XR Tablet",
+    "genericName": "Linagliptin + Metformin Hydrochloride",
+    "manufacturer": "The IBN SINA Pharmaceutical PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/32633/elipta-10-mg-tablet",
+    "medexId": "32633",
+    "slug": "elipta-10-mg-tablet",
+    "name": "Elipta 10 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Ziska Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32634/elipta-25-mg-tablet",
+    "medexId": "32634",
+    "slug": "elipta-25-mg-tablet",
+    "name": "Elipta 25 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Ziska Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32654/linatab-e-10-mg-tablet",
+    "medexId": "32654",
+    "slug": "linatab-e-10-mg-tablet",
+    "name": "Linatab E 10 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Incepta Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32655/linatab-e-25-mg-tablet",
+    "medexId": "32655",
+    "slug": "linatab-e-25-mg-tablet",
+    "name": "Linatab E 25 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Incepta Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32742/emazid-l-10-mg-tablet",
+    "medexId": "32742",
+    "slug": "emazid-l-10-mg-tablet",
+    "name": "Emazid L 10 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Eskayef Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/33627/tajenta-m-25-mg-tablet",
+    "medexId": "33627",
+    "slug": "tajenta-m-25-mg-tablet",
+    "name": "Tajenta-M 2.5 mg+850 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Linagliptin + Metformin Hydrochloride",
+    "manufacturer": "Goodman Pharmaceuticals Ltd."
+  },
+  {
+    "url": "https://medex.com.bd/brands/32869/sinjard-l-25-mg-tablet",
+    "medexId": "32869",
+    "slug": "sinjard-l-25-mg-tablet",
+    "name": "Sinjard-L 25 mg+5 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Empagliflozin + Linagliptin",
+    "manufacturer": "Beacon Pharmaceuticals PLC"
+  },
+  {
+    "url": "https://medex.com.bd/brands/33386/lino-m-25-mg-tablet",
+    "medexId": "33386",
+    "slug": "lino-m-25-mg-tablet",
+    "name": "Lino-M 2.5 mg+1000 mg",
+    "dosageForm": "Tablet",
+    "genericName": "Linagliptin + Metformin Hydrochloride",
+    "manufacturer": "ACME Laboratories Ltd."
+  }
+]
