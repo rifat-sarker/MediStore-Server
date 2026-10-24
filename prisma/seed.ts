@@ -10,7 +10,7 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  console.log('Seeding all demo data...');
+  console.log('Seeding rich Bangladesh pharma demo data (MedEx & ePharma inspired)...');
 
   const adminEmail = process.env.ADMIN_EMAIL || 'admin@medistore.com';
   const adminPassword = process.env.ADMIN_PASSWORD || 'password123';
@@ -20,117 +20,247 @@ async function main() {
   const admin = await prisma.user.upsert({
     where: { email: adminEmail },
     update: { password: hashedPassword },
-    create: { name: adminName, email: adminEmail, password: hashedPassword, role: 'ADMIN', phone: '01700000000', address: 'Admin HQ' },
+    create: { name: adminName, email: adminEmail, password: hashedPassword, role: 'ADMIN', phone: '01700000000', address: 'Banani HQ, Dhaka' },
   });
 
   const customer1 = await prisma.user.upsert({
     where: { email: 'customer1@example.com' },
-    update: {},
-    create: { name: 'John Doe', email: 'customer1@example.com', password: hashedPassword, role: 'CUSTOMER', phone: '01800000001', address: '123 Main St, Dhaka' },
+    update: { password: hashedPassword },
+    create: { name: 'Rifat Sarker', email: 'customer1@example.com', password: hashedPassword, role: 'CUSTOMER', phone: '01800000001', address: 'House 42, Road 11, Dhanmondi, Dhaka' },
   });
 
   const rider1User = await prisma.user.upsert({
     where: { email: 'rider1@example.com' },
-    update: {},
-    create: { name: 'Speedy Rider', email: 'rider1@example.com', password: hashedPassword, role: 'RIDER', phone: '01900000002', address: 'Rider Base' },
+    update: { password: hashedPassword },
+    create: { name: 'Speedy Rider', email: 'rider1@example.com', password: hashedPassword, role: 'RIDER', phone: '01900000002', address: 'Mirpur Express Station, Dhaka' },
   });
 
-  // 2. Create Rider Profile
   const riderProfile = await prisma.riderProfile.upsert({
     where: { userId: rider1User.id },
     update: {},
     create: {
       userId: rider1User.id,
-      vehicleInfo: 'Honda CB Hornet 160R',
-      licenseNo: 'DHAKA-L-123456',
+      vehicleInfo: 'Yamaha FZ-S (DHAKA-METRO-HA-5582)',
+      licenseNo: 'DHAKA-L-998822',
       currentStatus: 'AVAILABLE',
       isVerified: true,
     },
   });
 
-  // 3. Create Categories
-  const painRelief = await prisma.category.upsert({
-    where: { name: 'Pain Relief' },
-    update: {},
-    create: { name: 'Pain Relief', imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5e4b7b34b?q=80&w=600&auto=format&fit=crop' },
-  });
+  // 1. Categories matching ePharma
+  const categoriesData = [
+    { name: 'Medicines', imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5e4b7b34b?q=80&w=600&auto=format&fit=crop' },
+    { name: 'Baby & Mom', imageUrl: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=600&auto=format&fit=crop' },
+    { name: 'Diabetic Care', imageUrl: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=600&auto=format&fit=crop' },
+    { name: 'Health & Devices', imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=600&auto=format&fit=crop' },
+    { name: 'Personal Care', imageUrl: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop' },
+    { name: 'Vital Wellness', imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9894e7724?q=80&w=600&auto=format&fit=crop' },
+  ];
 
-  const vitamins = await prisma.category.upsert({
-    where: { name: 'Vitamins & Supplements' },
-    update: {},
-    create: { name: 'Vitamins & Supplements', imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9894e7724?q=80&w=600&auto=format&fit=crop' },
-  });
-
-  // 4. Create Medicines
-  const paracetamol = await prisma.medicine.upsert({
-    where: { id: 'demo-med-1' }, // Dummy check
-    update: {},
-    create: {
-      name: 'Paracetamol 500mg', description: 'Effective pain relief.', price: 2.5, stock: 500, manufacturer: 'Square', expiryDate: new Date('2026-12-31'),
-      imageUrl: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=600&auto=format&fit=crop', categoryId: painRelief.id
-    },
-  }).catch(() => prisma.medicine.findFirst({ where: { name: 'Paracetamol 500mg' } }));
-
-  const vitaminC = await prisma.medicine.upsert({
-    where: { id: 'demo-med-2' },
-    update: {},
-    create: {
-      name: 'Vitamin C 1000mg', description: 'Boosts immune system.', price: 8.5, stock: 200, manufacturer: 'Incepta', expiryDate: new Date('2028-01-15'),
-      imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9894e7724?q=80&w=600&auto=format&fit=crop', categoryId: vitamins.id
-    },
-  }).catch(() => prisma.medicine.findFirst({ where: { name: 'Vitamin C 1000mg' } }));
-
-  // 5. Create Coupons
-  const coupon = await prisma.coupon.upsert({
-    where: { code: 'WELCOME10' },
-    update: {},
-    create: { code: 'WELCOME10', discountPct: 10, expiryDate: new Date('2025-12-31'), isActive: true },
-  });
-
-  // 6. Create Orders and OrderItems
-  if (paracetamol && vitaminC) {
-    const order = await prisma.order.create({
-      data: {
-        userId: customer1.id,
-        riderId: riderProfile.id,
-        totalAmount: 13.5,
-        status: 'DELIVERED',
-        paymentStatus: 'PAID',
-        paymentMethod: 'SSLCOMMERZ',
-        shippingAddress: customer1.address!,
-        items: {
-          create: [
-            { medicineId: paracetamol.id, quantity: 2, price: 2.5 },
-            { medicineId: vitaminC.id, quantity: 1, price: 8.5 },
-          ]
-        }
-      }
+  const catMap: Record<string, any> = {};
+  for (const cat of categoriesData) {
+    const created = await prisma.category.upsert({
+      where: { name: cat.name },
+      update: { imageUrl: cat.imageUrl },
+      create: { name: cat.name, imageUrl: cat.imageUrl },
     });
-
-    // 7. Create Reviews
-    await prisma.review.create({
-      data: {
-        userId: customer1.id,
-        medicineId: paracetamol.id,
-        rating: 5,
-        comment: 'Very effective and fast delivery.',
-      }
-    });
-
-    // 8. Create Subscriptions
-    await prisma.subscription.create({
-      data: {
-        userId: customer1.id,
-        medicineId: vitaminC.id,
-        quantity: 1,
-        intervalDays: 30,
-        nextDate: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000),
-        isActive: true,
-      }
-    });
+    catMap[cat.name] = created;
   }
 
-  console.log('All models seeded successfully!');
+  // 2. Real MedEx Bangladesh Medicines & Products
+  const medexProducts = [
+    {
+      name: 'Napa Extra 500mg/65mg (Tablet)',
+      description: 'Paracetamol & Caffeine. Used for fever, headache, body pain, toothache and migraine relief.',
+      price: 3.50,
+      stock: 650,
+      manufacturer: 'Beximco Pharmaceuticals Ltd.',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5e4b7b34b?q=80&w=600&auto=format&fit=crop',
+      category: 'Medicines',
+    },
+    {
+      name: 'Ace Plus (Paracetamol & Caffeine)',
+      description: 'Fast acting analgesic and antipyretic for moderate to intense fever and headaches.',
+      price: 3.50,
+      stock: 400,
+      manufacturer: 'Square Pharmaceuticals PLC',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=600&auto=format&fit=crop',
+      category: 'Medicines',
+    },
+    {
+      name: 'Seclo 20mg Capsule',
+      description: 'Omeprazole BP. Effective for peptic ulcer, acid reflux (GERD), heartburn and hyperacidity.',
+      price: 7.00,
+      stock: 350,
+      manufacturer: 'Square Pharmaceuticals PLC',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=600&auto=format&fit=crop',
+      category: 'Medicines',
+    },
+    {
+      name: 'Pantonix 20mg Tablet',
+      description: 'Pantoprazole Sodium Sesquihydrate. Proton-pump inhibitor for gastric acid reduction.',
+      price: 8.00,
+      stock: 500,
+      manufacturer: 'Incepta Pharmaceuticals Ltd.',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=600&auto=format&fit=crop',
+      category: 'Medicines',
+    },
+    {
+      name: 'Sergel 20mg Capsule',
+      description: 'Esomeprazole Magnesium Trihydrate for healing erosive esophagitis and acid control.',
+      price: 8.00,
+      stock: 280,
+      manufacturer: 'Healthcare Pharmaceuticals Ltd.',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9894e7724?q=80&w=600&auto=format&fit=crop',
+      category: 'Medicines',
+    },
+    {
+      name: 'Bextram Gold (Multivitamin & Minerals)',
+      description: 'Complete 32 essential vitamins & minerals supplement for adult vitality and energy.',
+      price: 15.00,
+      stock: 220,
+      manufacturer: 'Beximco Pharmaceuticals Ltd.',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9c46d3e8f?q=80&w=600&auto=format&fit=crop',
+      category: 'Vital Wellness',
+    },
+    {
+      name: 'D-Rise 20,000 IU Capsule',
+      description: 'Cholecalciferol (Vitamin D3) for bone strength, calcium absorption and immune system.',
+      price: 45.00,
+      stock: 150,
+      manufacturer: 'Square Pharmaceuticals PLC',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600&auto=format&fit=crop',
+      category: 'Vital Wellness',
+    },
+    {
+      name: 'Accu-Chek Instant Glucometer with 10 Strips',
+      description: 'Instant blood glucose testing system with wireless Bluetooth connectivity and effortless accuracy.',
+      price: 1850.00,
+      stock: 45,
+      manufacturer: 'Roche Diabetes Care',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop',
+      category: 'Diabetic Care',
+    },
+    {
+      name: 'Accu-Chek Instant Test Strips (50 Strips)',
+      description: '50 disposable test strips for Accu-Chek Instant meter. No manual coding required.',
+      price: 1150.00,
+      stock: 180,
+      manufacturer: 'Roche Diagnostics',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=600&auto=format&fit=crop',
+      category: 'Diabetic Care',
+    },
+    {
+      name: 'Omron HEM-7120 Digital Blood Pressure Monitor',
+      description: 'Clinically validated automatic upper-arm BP meter with hypertension indicator and IntelliSense technology.',
+      price: 2650.00,
+      stock: 60,
+      manufacturer: 'Omron Healthcare Japan',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5e4b7b34b?q=80&w=600&auto=format&fit=crop',
+      category: 'Health & Devices',
+    },
+    {
+      name: 'Pampers Baby Dry Diapers (Large 64 pcs)',
+      description: 'Up to 12 hours of overnight leak lock with lotion aloe vera for gentle baby skin protection.',
+      price: 1680.00,
+      stock: 75,
+      manufacturer: 'Procter & Gamble',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=600&auto=format&fit=crop',
+      category: 'Baby & Mom',
+    },
+    {
+      name: 'CeraVe Daily Moisturizing Lotion (236ml)',
+      description: 'Formulated with 3 essential ceramides and hyaluronic acid to hydrate and restore protective barrier.',
+      price: 1450.00,
+      stock: 90,
+      manufacturer: 'L\'Oréal / CeraVe',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop',
+      category: 'Personal Care',
+    },
+    {
+      name: 'Ciprocin 500mg Tablet (Ciprofloxacin)',
+      description: 'Broad-spectrum fluoroquinolone antibiotic for respiratory and urinary tract bacterial infections.',
+      price: 18.00,
+      stock: 200,
+      manufacturer: 'Square Pharmaceuticals PLC',
+      requiredPrescription: true,
+      imageUrl: 'https://images.unsplash.com/photo-1585698436531-97b76e1045a5?q=80&w=600&auto=format&fit=crop',
+      category: 'Medicines',
+    },
+    {
+      name: 'Monas 10mg Tablet (Montelukast)',
+      description: 'Leukotriene receptor antagonist for prophylaxis and chronic treatment of bronchial asthma & allergic rhinitis.',
+      price: 17.50,
+      stock: 260,
+      manufacturer: 'Acme Laboratories Ltd.',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=600&auto=format&fit=crop',
+      category: 'Medicines',
+    },
+    {
+      name: 'Glucerna SR Vanilla (400g Tin)',
+      description: 'Nutritional drink clinically proven to help manage blood glucose response for individuals with diabetes.',
+      price: 1250.00,
+      stock: 40,
+      manufacturer: 'Abbott Laboratories',
+      requiredPrescription: false,
+      imageUrl: 'https://images.unsplash.com/photo-1576602976047-174e57a47881?q=80&w=600&auto=format&fit=crop',
+      category: 'Diabetic Care',
+    },
+  ];
+
+  for (const item of medexProducts) {
+    const cat = catMap[item.category] || catMap['Medicines'];
+    const existing = await prisma.medicine.findFirst({ where: { name: item.name } });
+    if (!existing) {
+      await prisma.medicine.create({
+        data: {
+          name: item.name,
+          description: item.description,
+          price: item.price,
+          stock: item.stock,
+          manufacturer: item.manufacturer,
+          requiredPrescription: item.requiredPrescription,
+          imageUrl: item.imageUrl,
+          categoryId: cat.id,
+          expiryDate: new Date('2028-12-31'),
+        },
+      });
+    } else {
+      await prisma.medicine.update({
+        where: { id: existing.id },
+        data: {
+          price: item.price,
+          stock: item.stock,
+          imageUrl: item.imageUrl,
+          categoryId: cat.id,
+          manufacturer: item.manufacturer,
+          description: item.description,
+        },
+      });
+    }
+  }
+
+  // 3. Create Coupon
+  await prisma.coupon.upsert({
+    where: { code: 'EPHARMA10' },
+    update: {},
+    create: { code: 'EPHARMA10', discountPct: 10, expiryDate: new Date('2028-12-31'), isActive: true },
+  });
+
+  console.log('✅ MedEx & ePharma catalog seeded successfully with verified Bangladesh pharmaceutical items!');
 }
 
 main()
