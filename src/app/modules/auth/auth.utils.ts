@@ -4,9 +4,11 @@ import { IJwtPayload } from "./auth.interface";
 export const createToken = (
   jwtPayload: IJwtPayload,
   secret: Secret,
-  expiresIn: string
+  expiresIn?: string
 ) => {
-  return jwt.sign(jwtPayload, secret, { expiresIn } as any);
+  const expiry = expiresIn || "1d";
+  const jwtSecret = secret || "default_jwt_secret_fallback_key";
+  return jwt.sign(jwtPayload, jwtSecret, { expiresIn: expiry } as any);
 };
 
 export const verifyToken = (token: string, secret: Secret) => {
