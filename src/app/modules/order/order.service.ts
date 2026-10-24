@@ -107,8 +107,11 @@ const createOrder = async (orderData: any, authUser: IJwtPayload) => {
           customerAddress: user?.address || "Dhaka, Bangladesh",
           shippingAddress: orderData.shippingAddress || "Dhaka, Bangladesh",
         });
-        return { order: createdOrder, paymentUrl: sslResponse?.GatewayPageURL || null };
-      } catch {
+        console.log("💳 SSLCommerz Gateway Response:", sslResponse);
+        const paymentUrl = sslResponse?.GatewayPageURL || sslResponse?.redirectGatewayURL || null;
+        return { order: createdOrder, paymentUrl };
+      } catch (sslErr: any) {
+        console.error("❌ SSLCommerz init error:", sslErr?.message || sslErr);
         // If SSL fails (sandbox/env issue), still return order without payment URL
         return { order: createdOrder, paymentUrl: null };
       }
