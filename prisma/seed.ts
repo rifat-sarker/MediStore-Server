@@ -10,17 +10,16 @@ const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  console.log('Seeding rich Bangladesh pharma demo data (MedEx & ePharma inspired)...');
+  console.log('Seeding rich Bangladesh pharma demo data with verified image URLs...');
 
-  const adminEmail = process.env.ADMIN_EMAIL || 'admin@medistore.com';
-  const adminPassword = process.env.ADMIN_PASSWORD || 'password123';
-  const adminName = process.env.ADMIN_NAME || 'Admin User';
+  const adminPassword = process.env.ADMIN_PASSWORD || '@Rifat1234';
   const hashedPassword = await bcrypt.hash(adminPassword, 12);
   
-  const admin = await prisma.user.upsert({
-    where: { email: adminEmail },
+  // Create all 3 default testing users
+  await prisma.user.upsert({
+    where: { email: 'admin@medistore.com' },
     update: { password: hashedPassword },
-    create: { name: adminName, email: adminEmail, password: hashedPassword, role: 'ADMIN', phone: '01700000000', address: 'Banani HQ, Dhaka' },
+    create: { name: 'Admin User', email: 'admin@medistore.com', password: hashedPassword, role: 'ADMIN', phone: '01700000000', address: 'Banani HQ, Dhaka' },
   });
 
   const customer1 = await prisma.user.upsert({
@@ -35,7 +34,7 @@ async function main() {
     create: { name: 'Speedy Rider', email: 'rider1@example.com', password: hashedPassword, role: 'RIDER', phone: '01900000002', address: 'Mirpur Express Station, Dhaka' },
   });
 
-  const riderProfile = await prisma.riderProfile.upsert({
+  await prisma.riderProfile.upsert({
     where: { userId: rider1User.id },
     update: {},
     create: {
@@ -49,12 +48,12 @@ async function main() {
 
   // 1. Categories matching ePharma
   const categoriesData = [
-    { name: 'Medicines', imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5e4b7b34b?q=80&w=600&auto=format&fit=crop' },
-    { name: 'Baby & Mom', imageUrl: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=600&auto=format&fit=crop' },
-    { name: 'Diabetic Care', imageUrl: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=600&auto=format&fit=crop' },
-    { name: 'Health & Devices', imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=600&auto=format&fit=crop' },
-    { name: 'Personal Care', imageUrl: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop' },
-    { name: 'Vital Wellness', imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9894e7724?q=80&w=600&auto=format&fit=crop' },
+    { name: 'Medicines', imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Baby & Mom', imageUrl: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Diabetic Care', imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Health & Devices', imageUrl: 'https://images.unsplash.com/photo-1576602976047-174e57a47881?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Personal Care', imageUrl: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&auto=format&fit=crop&q=80' },
+    { name: 'Vital Wellness', imageUrl: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&auto=format&fit=crop&q=80' },
   ];
 
   const catMap: Record<string, any> = {};
@@ -67,7 +66,7 @@ async function main() {
     catMap[cat.name] = created;
   }
 
-  // 2. Real MedEx Bangladesh Medicines & Products
+  // 2. Real MedEx Bangladesh Medicines with verified 200 HTTP images
   const medexProducts = [
     {
       name: 'Napa Extra 500mg/65mg (Tablet)',
@@ -76,7 +75,7 @@ async function main() {
       stock: 650,
       manufacturer: 'Beximco Pharmaceuticals Ltd.',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5e4b7b34b?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80',
       category: 'Medicines',
     },
     {
@@ -86,7 +85,7 @@ async function main() {
       stock: 400,
       manufacturer: 'Square Pharmaceuticals PLC',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=600&auto=format&fit=crop&q=80',
       category: 'Medicines',
     },
     {
@@ -96,7 +95,7 @@ async function main() {
       stock: 350,
       manufacturer: 'Square Pharmaceuticals PLC',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&auto=format&fit=crop&q=80',
       category: 'Medicines',
     },
     {
@@ -106,7 +105,7 @@ async function main() {
       stock: 500,
       manufacturer: 'Incepta Pharmaceuticals Ltd.',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&auto=format&fit=crop&q=80',
       category: 'Medicines',
     },
     {
@@ -116,7 +115,7 @@ async function main() {
       stock: 280,
       manufacturer: 'Healthcare Pharmaceuticals Ltd.',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9894e7724?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&auto=format&fit=crop&q=80',
       category: 'Medicines',
     },
     {
@@ -126,7 +125,7 @@ async function main() {
       stock: 220,
       manufacturer: 'Beximco Pharmaceuticals Ltd.',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1550572017-edb9c46d3e8f?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&auto=format&fit=crop&q=80',
       category: 'Vital Wellness',
     },
     {
@@ -136,7 +135,7 @@ async function main() {
       stock: 150,
       manufacturer: 'Square Pharmaceuticals PLC',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&auto=format&fit=crop&q=80',
       category: 'Vital Wellness',
     },
     {
@@ -146,7 +145,7 @@ async function main() {
       stock: 45,
       manufacturer: 'Roche Diabetes Care',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80',
       category: 'Diabetic Care',
     },
     {
@@ -156,7 +155,7 @@ async function main() {
       stock: 180,
       manufacturer: 'Roche Diagnostics',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=600&auto=format&fit=crop&q=80',
       category: 'Diabetic Care',
     },
     {
@@ -166,7 +165,7 @@ async function main() {
       stock: 60,
       manufacturer: 'Omron Healthcare Japan',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5e4b7b34b?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&auto=format&fit=crop&q=80',
       category: 'Health & Devices',
     },
     {
@@ -176,7 +175,7 @@ async function main() {
       stock: 75,
       manufacturer: 'Procter & Gamble',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&auto=format&fit=crop&q=80',
       category: 'Baby & Mom',
     },
     {
@@ -186,7 +185,7 @@ async function main() {
       stock: 90,
       manufacturer: 'L\'Oréal / CeraVe',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&auto=format&fit=crop&q=80',
       category: 'Personal Care',
     },
     {
@@ -194,9 +193,8 @@ async function main() {
       description: 'Broad-spectrum fluoroquinolone antibiotic for respiratory and urinary tract bacterial infections.',
       price: 18.00,
       stock: 200,
-      manufacturer: 'Square Pharmaceuticals PLC',
       requiredPrescription: true,
-      imageUrl: 'https://images.unsplash.com/photo-1585698436531-97b76e1045a5?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&auto=format&fit=crop&q=80',
       category: 'Medicines',
     },
     {
@@ -206,7 +204,7 @@ async function main() {
       stock: 260,
       manufacturer: 'Acme Laboratories Ltd.',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&auto=format&fit=crop&q=80',
       category: 'Medicines',
     },
     {
@@ -216,7 +214,7 @@ async function main() {
       stock: 40,
       manufacturer: 'Abbott Laboratories',
       requiredPrescription: false,
-      imageUrl: 'https://images.unsplash.com/photo-1576602976047-174e57a47881?q=80&w=600&auto=format&fit=crop',
+      imageUrl: 'https://images.unsplash.com/photo-1576602976047-174e57a47881?w=600&auto=format&fit=crop&q=80',
       category: 'Diabetic Care',
     },
   ];
@@ -260,7 +258,7 @@ async function main() {
     create: { code: 'EPHARMA10', discountPct: 10, expiryDate: new Date('2028-12-31'), isActive: true },
   });
 
-  console.log('✅ MedEx & ePharma catalog seeded successfully with verified Bangladesh pharmaceutical items!');
+  console.log('✅ Updated all products with verified working images and synchronized user passwords.');
 }
 
 main()

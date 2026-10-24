@@ -47,11 +47,18 @@ const getAllMedicineFromDB = async (query: Record<string, unknown>) => {
   if (categories) {
     const categoryArray =
       typeof categories === "string"
-        ? categories.split(",")
+        ? categories.split(",").map((c: string) => c.trim())
         : Array.isArray(categories)
         ? categories
         : [categories];
-    filter.categoryId = { in: categoryArray };
+    filter.OR = [
+      ...(filter.OR || []),
+      { categoryId: { in: categoryArray } },
+      { category: { name: { in: categoryArray, mode: "insensitive" } } },
+      ...categoryArray.map((c: string) => ({
+        category: { name: { contains: c, mode: "insensitive" } }
+      }))
+    ];
   }
 
   if (inStock !== undefined) {
