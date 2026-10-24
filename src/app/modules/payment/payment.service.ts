@@ -20,8 +20,8 @@ export const initiateSSLCommerzPayment = async ({
   customerAddress: string;
   shippingAddress: string;
 }) => {
-  const store_id = (config.ssl_store_id || "testbox") as string;
-  const store_passwd = (config.ssl_store_passwd || "qwerty") as string;
+  const store_id = (config.ssl_store_id || process.env.SSL_STORE_ID || "medis6adcdc8ccb2d9") as string;
+  const store_passwd = (config.ssl_store_passwd || process.env.SSL_STORE_PASSWD || "19n0siXbnHhU") as string;
   const is_live = Boolean(config.ssl_is_live);
 
   const backendUrl = process.env.BACKEND_URL || "http://localhost:5001";
@@ -44,11 +44,13 @@ export const initiateSSLCommerzPayment = async ({
     cus_email: customerEmail || "customer@medistore.com",
     cus_add1: customerAddress || "Dhaka, Bangladesh",
     cus_city: "Dhaka",
+    cus_postcode: "1200",
     cus_country: "Bangladesh",
     cus_phone: customerPhone || "01700000000",
     ship_name: customerName || "MediStore Customer",
     ship_add1: shippingAddress || customerAddress || "Dhaka, Bangladesh",
     ship_city: "Dhaka",
+    ship_postcode: "1200",
     ship_country: "Bangladesh",
   };
 
