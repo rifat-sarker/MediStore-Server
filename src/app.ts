@@ -10,7 +10,18 @@ const app: Application = express();
 // ─── CORS ───────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: config.frontend_url,
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps, curl, or same-origin)
+      if (!origin) return callback(null, true);
+      if (
+        origin.includes("localhost") ||
+        origin.includes("vercel.app") ||
+        origin === config.frontend_url
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true); // Permissive for production web clients
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],

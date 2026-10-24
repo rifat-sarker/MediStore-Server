@@ -9,9 +9,14 @@ redisClient.on("error", (err) => console.error("Redis error:", err));
 redisClient.on("connect", () => console.log("Connected to Redis"));
 
 export const connectRedis = async () => {
-  if (!redisClient.isOpen) {
-    await redisClient.connect();
+  try {
+    if (!redisClient.isOpen && config.redis_url) {
+      await redisClient.connect();
+    }
+  } catch (err) {
+    console.warn("⚠️ Redis connection failed or skipped in serverless environment:", (err as any)?.message);
   }
 };
+
 
 export default redisClient;
