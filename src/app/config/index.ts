@@ -22,8 +22,17 @@ export default {
   ssl_is_live: process.env.SSL_IS_LIVE === "true",
   // Redis
   redis_url: process.env.REDIS_URL,
-  // Frontend
-  frontend_url: process.env.FRONTEND_URL || "http://localhost:3000",
+  // Frontend & Backend URLs
+  frontend_url:
+    process.env.FRONTEND_URL ||
+    (process.env.NODE_ENV === "production"
+      ? "https://medistore-client-two.vercel.app"
+      : "http://localhost:3000"),
+  backend_url:
+    process.env.BACKEND_URL ||
+    (process.env.NODE_ENV === "production"
+      ? "https://medistore-server-li88.onrender.com"
+      : "http://localhost:5001"),
   // SMTP (Google)
   smtp_host: process.env.SMTP_HOST || "smtp.gmail.com",
   smtp_port: Number(process.env.SMTP_PORT) || 587,

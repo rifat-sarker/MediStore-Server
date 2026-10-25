@@ -22,7 +22,12 @@ export const initiateSSLCommerzPayment = async ({
   const store_passwd = (config.ssl_store_passwd || process.env.SSL_STORE_PASSWD || "19n0siXbnHhU") as string;
   const is_live = Boolean(config.ssl_is_live);
 
-  const backendUrl = process.env.BACKEND_URL || "http://localhost:5001";
+  const backendUrl =
+    config.backend_url ||
+    process.env.BACKEND_URL ||
+    (process.env.NODE_ENV === "production"
+      ? "https://medistore-server-li88.onrender.com"
+      : "http://localhost:5001");
   const apiUrl = is_live
     ? "https://securepay.sslcommerz.com/gwprocess/v4/api.php"
     : "https://sandbox.sslcommerz.com/gwprocess/v4/api.php";
