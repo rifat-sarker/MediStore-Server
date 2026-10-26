@@ -9,6 +9,9 @@ const transporter = nodemailer.createTransport({
     user: config.smtp_email,
     pass: config.smtp_pass,
   },
+  connectionTimeout: 10000, // 10 seconds
+  greetingTimeout: 10000,
+  socketTimeout: 15000,
 });
 
 interface IEmailOptions {
@@ -18,12 +21,23 @@ interface IEmailOptions {
 }
 
 export const sendEmail = async ({ to, subject, html }: IEmailOptions) => {
-  await transporter.sendMail({
-    from: `"MediStore" <${config.smtp_email}>`,
-    to,
-    subject,
-    html,
-  });
+  if (!config.smtp_email || !config.smtp_pass) {
+    console.error("❌ SMTP credentials missing! SMTP_EMAIL or SMTP_PASS is not set.");
+    throw new Error("Email service is temporarily unavailable. Missing credentials.");
+  }
+  try {
+    const info = await transporter.sendMail({
+      from: `"MediStore" <${config.smtp_email}>`,
+      to,
+      subject,
+      html,
+    });
+    console.log(`📧 Email sent successfully to ${to}. MessageId: ${info.messageId}`);
+    return info;
+  } catch (err: any) {
+    console.error(`❌ Failed to send email to ${to}:`, err?.message || err);
+    throw new Error(err?.message || "Failed to send verification email. Please check email address.");
+  }
 };
 
 export const generateOtpEmailHtml = (otp: string, purpose: string) => `
