@@ -43,24 +43,24 @@ services:
       DATABASE_URL: "postgresql://rifat:rifat123@postgres:5432/medistore"
       REDIS_URL: "redis://redis:6379"
       FRONTEND_URL: "http://localhost:3000"
-      BCRYPT_SALT_ROUNDS: "10"
-      JWT_ACCESS_SECRET: "14a0a4bf7355a2d63b0a3734ed2cd6d726a3f714a1acf51c6587c06fca9c8cb07c3e0e3d71247f03eccc88b1ccd7e458373d43eac867a03f21ef76666c10ad66"
-      JWT_ACCESS_EXPIRES_IN: "2d"
-      JWT_REFRESH_SECRET: "63c7b0071b09fe4ef17d6b894c767e128fba57875f5aa1d6076c71ae313d0e00fc2631386a11241d697a0f878e67e29d187fe5abd0fc2526afbd13b4b01f11ce"
-      JWT_REFRESH_EXPIRES_IN: "5d"
-      CLOUDINARRY_CLOUD_NAME: "dunfiptfi"
-      CLOUDINARRY_API_SECRET: "FFcbn_5DiOUW-YBmz7QeSpmwyLo"
-      CLOUDINARRY_API_KEY: "986548772374891"
-      SMTP_EMAIL: "rifatswd@gmail.com"
-      SMTP_PASS: "dpgb rwck ttun cmeq"
-      SMTP_PORT: "587"
-      SMTP_HOST: "smtp.gmail.com"
-      SSL_STORE_ID: "medis6adcdc8ccb2d9"
-      SSL_STORE_PASSWD: "19n0siXbnHhU"
-      SSL_IS_LIVE: "false"
-      ADMIN_NAME: "Super Admin"
-      ADMIN_EMAIL: "rifatswd@gmail.com"
-      ADMIN_PASSWORD: "@Rifat1234"
+      BCRYPT_SALT_ROUNDS: ${BCRYPT_SALT_ROUNDS:-10}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
+      JWT_ACCESS_EXPIRES_IN: ${JWT_ACCESS_EXPIRES_IN:-2d}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
+      JWT_REFRESH_EXPIRES_IN: ${JWT_REFRESH_EXPIRES_IN:-5d}
+      CLOUDINARRY_CLOUD_NAME: ${CLOUDINARRY_CLOUD_NAME}
+      CLOUDINARRY_API_SECRET: ${CLOUDINARRY_API_SECRET}
+      CLOUDINARRY_API_KEY: ${CLOUDINARRY_API_KEY}
+      SMTP_EMAIL: ${SMTP_EMAIL}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+      SSL_STORE_ID: ${SSL_STORE_ID}
+      SSL_STORE_PASSWD: ${SSL_STORE_PASSWD}
+      SSL_IS_LIVE: ${SSL_IS_LIVE:-false}
+      ADMIN_NAME: ${ADMIN_NAME:-Super Admin}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     depends_on:
       postgres:
         condition: service_healthy

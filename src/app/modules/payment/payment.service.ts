@@ -18,8 +18,8 @@ export const initiateSSLCommerzPayment = async ({
   customerAddress: string;
   shippingAddress: string;
 }) => {
-  const store_id = (config.ssl_store_id || process.env.SSL_STORE_ID || "medis6adcdc8ccb2d9") as string;
-  const store_passwd = (config.ssl_store_passwd || process.env.SSL_STORE_PASSWD || "19n0siXbnHhU") as string;
+  const store_id = (config.ssl_store_id || process.env.SSL_STORE_ID || "") as string;
+  const store_passwd = (config.ssl_store_passwd || process.env.SSL_STORE_PASSWD || "") as string;
   const is_live = Boolean(config.ssl_is_live);
 
   const backendUrl =
