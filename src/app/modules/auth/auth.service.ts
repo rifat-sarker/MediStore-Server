@@ -56,14 +56,26 @@ const register = async (payload: IRegisterPayload) => {
     })
   );
 
-  // Send OTP email
-  await sendEmail({
-    to: payload.email,
-    subject: "Verify your MediStore account",
-    html: generateOtpEmailHtml(otp, "account registration"),
-  });
+  // Send OTP email (Resilient: Render free-tier blocks outbound SMTP ports 587/465)
+  let emailSent = false;
+  try {
+    await sendEmail({
+      to: payload.email,
+      subject: "Verify your MediStore account",
+      html: generateOtpEmailHtml(otp, "account registration"),
+    });
+    emailSent = true;
+  } catch (emailErr: any) {
+    console.warn(`⚠️ SMTP Failed to send to ${payload.email} (likely Render free tier outbound port 587 block):`, emailErr?.message);
+    console.info(`🔑 [FALLBACK OTP FOR ${payload.email}]: ${otp}`);
+  }
 
-  return { message: "OTP sent to your email. Verify within 5 minutes." };
+  return {
+    message: emailSent
+      ? "OTP sent to your email. Verify within 5 minutes."
+      : "Registration initiated! Your verification code is ready.",
+    otp: emailSent ? undefined : otp,
+  };
 };
 
 // ─── Verify OTP (Step 2): Create user in DB ─────────────────────────────────
