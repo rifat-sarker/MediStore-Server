@@ -38,6 +38,8 @@ export default {
   smtp_port: Number(process.env.SMTP_PORT) || 587,
   smtp_email: process.env.SMTP_EMAIL,
   smtp_pass: process.env.SMTP_PASS,
+  // Resend HTTP API Key (Port 443 — works everywhere on Render without port blocks)
+  resend_api_key: process.env.RESEND_API_KEY,
   // Admin seed
   admin_name: process.env.ADMIN_NAME || "Super Admin",
   admin_email: process.env.ADMIN_EMAIL || "admin@medistore.com",
