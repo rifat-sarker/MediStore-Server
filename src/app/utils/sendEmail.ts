@@ -24,7 +24,40 @@ interface IEmailOptions {
 }
 
 export const sendEmail = async ({ to, subject, html }: IEmailOptions) => {
-  // 1. Primary method: Resend HTTP API (Port 443 — works everywhere on Render without port blocks)
+  // 1. Brevo HTTP API (Port 443 — allows sending to any recipient without domain verification)
+  if (config.brevo_api_key) {
+    try {
+      const brevoRes = await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+          "api-key": config.brevo_api_key,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          sender: {
+            name: "MediStore",
+            email: config.smtp_email || "rifatswd@gmail.com",
+          },
+          to: [{ email: to }],
+          subject,
+          htmlContent: html,
+        }),
+      });
+
+      const brevoData: any = await brevoRes.json();
+      if (brevoRes.ok) {
+        console.log(`📧 [Brevo HTTP API] Email sent successfully to ${to}. MessageId:`, brevoData.messageId);
+        return brevoData;
+      } else {
+        console.warn("⚠️ Brevo API returned error:", brevoData?.message || brevoData);
+      }
+    } catch (brevoErr: any) {
+      console.warn("⚠️ Brevo API request failed:", brevoErr?.message || brevoErr);
+    }
+  }
+
+  // 2. Resend HTTP API (Port 443 — sends to verified Resend account email)
   if (resend) {
     try {
       const response = await resend.emails.send({
@@ -45,7 +78,7 @@ export const sendEmail = async ({ to, subject, html }: IEmailOptions) => {
     }
   }
 
-  // 2. Fallback method: Traditional SMTP via Nodemailer
+  // 3. Fallback method: Traditional SMTP via Nodemailer
   if (config.smtp_email && config.smtp_pass) {
     try {
       const info = await transporter.sendMail({
