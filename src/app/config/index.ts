@@ -22,6 +22,8 @@ export default {
   ssl_is_live: process.env.SSL_IS_LIVE === "true",
   // Redis
   redis_url: process.env.REDIS_URL,
+  upstash_redis_rest_url: process.env.UPSTASH_REDIS_REST_URL,
+  upstash_redis_rest_token: process.env.UPSTASH_REDIS_REST_TOKEN,
   // Frontend & Backend URLs
   frontend_url:
     process.env.FRONTEND_URL ||

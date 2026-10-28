@@ -311,6 +311,13 @@
   dependencies:
     uuid "*"
 
+"@upstash/redis@^1.40.0":
+  version "1.40.0"
+  resolved "https://registry.npmjs.org/@upstash/redis/-/redis-1.40.0.tgz"
+  integrity sha512-F6+V7Kof2McJtGWclusZLt7hBRmIMZg+albS32/5TuNRg/92FM2nkyKPY9wWEieMj9hjyUi4iURsN1djsHNbwA==
+  dependencies:
+    uncrypto "^0.1.3"
+
 abbrev@1:
   version "1.1.1"
 
@@ -1507,6 +1514,11 @@ typescript@^5.0.0, typescript@>=5, typescript@>=5.4.0:
   version "5.8.2"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.8.2.tgz"
   integrity sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==
+
+uncrypto@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.npmjs.org/uncrypto/-/uncrypto-0.1.3.tgz"
+  integrity sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==
 
 undici-types@*, undici-types@~6.20.0:
   version "6.20.0"
