@@ -1,21 +1,23 @@
 import nodemailer from "nodemailer";
-import { Resend } from "resend";
 import config from "../config";
 
-const resend = config.resend_api_key ? new Resend(config.resend_api_key) : null;
+const getTransporter = () => {
+  const port = Number(config.smtp_port) || 465;
+  const isSecure = port === 465;
 
-const transporter = nodemailer.createTransport({
-  host: config.smtp_host,
-  port: config.smtp_port,
-  secure: false, // TLS via STARTTLS
-  auth: {
-    user: config.smtp_email,
-    pass: config.smtp_pass,
-  },
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 15000,
-});
+  return nodemailer.createTransport({
+    host: config.smtp_host || "smtp.gmail.com",
+    port,
+    secure: isSecure, // true for 465, false for 587
+    auth: {
+      user: config.smtp_email,
+      pass: config.smtp_pass ? config.smtp_pass.replace(/\s+/g, "") : "",
+    },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+  });
+};
 
 interface IEmailOptions {
   to: string;
@@ -24,78 +26,20 @@ interface IEmailOptions {
 }
 
 export const sendEmail = async ({ to, subject, html }: IEmailOptions) => {
-  // 1. Brevo HTTP API (Port 443 — allows sending to any recipient without domain verification)
-  if (config.brevo_api_key) {
-    try {
-      const brevoRes = await fetch("https://api.brevo.com/v3/smtp/email", {
-        method: "POST",
-        headers: {
-          "api-key": config.brevo_api_key,
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          sender: {
-            name: "MediStore",
-            email: config.smtp_email || "rifatswd@gmail.com",
-          },
-          to: [{ email: to }],
-          subject,
-          htmlContent: html,
-        }),
-      });
-
-      const brevoData: any = await brevoRes.json();
-      if (brevoRes.ok) {
-        console.log(`📧 [Brevo HTTP API] Email sent successfully to ${to}. MessageId:`, brevoData.messageId);
-        return brevoData;
-      } else {
-        console.warn("⚠️ Brevo API returned error:", brevoData?.message || brevoData);
-      }
-    } catch (brevoErr: any) {
-      console.warn("⚠️ Brevo API request failed:", brevoErr?.message || brevoErr);
-    }
+  if (!config.smtp_email || !config.smtp_pass) {
+    throw new Error("SMTP credentials (SMTP_EMAIL / SMTP_PASS) not configured.");
   }
 
-  // 2. Resend HTTP API (Port 443 — sends to verified Resend account email)
-  if (resend) {
-    try {
-      const response = await resend.emails.send({
-        from: "MediStore <onboarding@resend.dev>",
-        to: [to],
-        subject,
-        html,
-      });
+  const transporter = getTransporter();
+  const info = await transporter.sendMail({
+    from: `"MediStore" <${config.smtp_email}>`,
+    to,
+    subject,
+    html,
+  });
 
-      if (response.error) {
-        console.warn("⚠️ Resend API returned error, attempting fallback:", response.error.message);
-      } else {
-        console.log(`📧 [Resend HTTP API] Email sent successfully to ${to}. ID: ${response.data?.id}`);
-        return response.data;
-      }
-    } catch (resendError: any) {
-      console.warn("⚠️ Resend API threw an error, trying SMTP:", resendError?.message || resendError);
-    }
-  }
-
-  // 3. Fallback method: Traditional SMTP via Nodemailer
-  if (config.smtp_email && config.smtp_pass) {
-    try {
-      const info = await transporter.sendMail({
-        from: `"MediStore" <${config.smtp_email}>`,
-        to,
-        subject,
-        html,
-      });
-      console.log(`📧 [SMTP] Email sent successfully to ${to}. MessageId: ${info.messageId}`);
-      return info;
-    } catch (smtpErr: any) {
-      console.error(`❌ SMTP Failed to send to ${to}:`, smtpErr?.message || smtpErr);
-      throw new Error(smtpErr?.message || "Failed to send verification email.");
-    }
-  }
-
-  throw new Error("No active email service configured. Please check RESEND_API_KEY.");
+  console.log(`📧 [Gmail SMTP] Email successfully sent to ${to}. MessageId: ${info.messageId}`);
+  return info;
 };
 
 export const generateOtpEmailHtml = (otp: string, purpose: string) => `
