@@ -1,5 +1,6 @@
 import config from "../../config";
-import { v4 as uuidv4 } from "uuid";
+import crypto from "crypto";
+const uuidv4 = () => crypto.randomUUID();
 
 export const initiateSSLCommerzPayment = async ({
   amount,
