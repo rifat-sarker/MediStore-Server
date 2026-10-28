@@ -19,11 +19,22 @@ const register = catchAsync(async (req: Request, res: Response) => {
 // POST /auth/verify-otp
 const verifyOtp = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.verifyOtp(req.body);
+  const { refreshToken, accessToken, user } = result;
+
+  if (refreshToken) {
+    res.cookie("refreshToken", refreshToken, {
+      secure: config.NODE_ENV === "production",
+      httpOnly: true,
+      sameSite: "none",
+      maxAge: 1000 * 60 * 60 * 24 * 5, // 5 days
+    });
+  }
+
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
     message: result.message,
-    data: result.user,
+    data: { user, accessToken, refreshToken },
   });
 });
 

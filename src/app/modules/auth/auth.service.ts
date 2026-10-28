@@ -115,10 +115,36 @@ const verifyOtp = async (payload: IVerifyOtp) => {
     },
   });
 
+  // Create tokens for instant login upon verification
+  const jwtPayload: IJwtPayload = {
+    userId: user.id,
+    name: user.name,
+    email: user.email,
+    phone: user.phone || "",
+    role: user.role,
+  };
+
+  const accessToken = createToken(
+    jwtPayload,
+    config.jwt_access_secret as string,
+    config.jwt_access_expires_in as string
+  );
+
+  const refreshToken = createToken(
+    jwtPayload,
+    config.jwt_refresh_secret as string,
+    config.jwt_refresh_expires_in as string
+  );
+
   // Remove pending data from Redis
   await redisClient.del(pendingKey);
 
-  return { message: "Account verified successfully!", user };
+  return {
+    message: "Account verified successfully!",
+    user,
+    accessToken,
+    refreshToken,
+  };
 };
 
 // ─── Resend OTP ──────────────────────────────────────────────────────────────

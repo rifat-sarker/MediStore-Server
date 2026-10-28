@@ -27,13 +27,13 @@ export default {
   // Frontend & Backend URLs
   frontend_url:
     process.env.FRONTEND_URL ||
-    (process.env.NODE_ENV === "production"
+    (process.env.NODE_ENV === "production" || process.env.VERCEL === "1"
       ? "https://medistore-client-two.vercel.app"
       : "http://localhost:3000"),
   backend_url:
     process.env.BACKEND_URL ||
-    (process.env.NODE_ENV === "production"
-      ? "https://medistore-server-li88.onrender.com"
+    (process.env.NODE_ENV === "production" || process.env.VERCEL === "1"
+      ? "https://medistore-server-chi.vercel.app"
       : "http://localhost:5001"),
   // SMTP (Google)
   smtp_host: process.env.SMTP_HOST || "smtp.gmail.com",
